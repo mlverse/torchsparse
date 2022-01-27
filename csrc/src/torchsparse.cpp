@@ -4,9 +4,14 @@
 #include <iostream>
 #include <vector>
 #include "torchsparse/torchsparse.h"
+#include <torchsparse/sparse.h>
 
 // [[torch::export]]
-torch::Tensor d_sigmoid(torch::Tensor z) {
+torch::Tensor sparse_ind2ptr(torch::Tensor ind, int64_t M) {
+  return ind2ptr(ind, M);
+}
+
+torch::Tensor sparse_sigmoid(torch::Tensor z) {
   auto s = torch::sigmoid(z);
   return (1 - s) * s;
 }

@@ -5,6 +5,6 @@
 #include <torchsparse/torchsparse.h>
 
 // [[Rcpp::export]]
-torch::Tensor rcpp_d_sigmoid (torch::Tensor z) {
-  return  d_sigmoid(z.get());
+torch::Tensor rcpp_sparse_ind2ptr (torch::Tensor ind, int64_t M) {
+  return  sparse_ind2ptr(ind.get(), M);
 }

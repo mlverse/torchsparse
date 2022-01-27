@@ -25,11 +25,11 @@ extern void* p_torchsparse_last_error;
 TORCHSPARSE_API void* torchsparse_last_error ();
 TORCHSPARSE_API void torchsparse_last_error_clear();
 
-TORCHSPARSE_API void* _d_sigmoid (void* z);
+TORCHSPARSE_API void* _sparse_ind2ptr (void* ind, int64_t M);
 
 #ifdef RCPP_VERSION
-inline void* d_sigmoid (void* z) {
-  auto ret =  _d_sigmoid(z);
+inline void* sparse_ind2ptr (void* ind, int64_t M) {
+  auto ret =  _sparse_ind2ptr(ind, M);
   host_exception_handler();
   return ret;
 }

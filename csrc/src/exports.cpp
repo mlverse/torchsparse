@@ -13,10 +13,10 @@ TORCHSPARSE_API void torchsparse_last_error_clear()
   p_torchsparse_last_error = NULL;
 }
 
-torch::Tensor d_sigmoid (torch::Tensor z);
-TORCHSPARSE_API void* _d_sigmoid (void* z) {
+torch::Tensor sparse_ind2ptr (torch::Tensor ind, int64_t M);
+TORCHSPARSE_API void* _sparse_ind2ptr (void* ind, int64_t M) {
   try {
-    return  make_raw::Tensor(d_sigmoid(from_raw::Tensor(z)));
+    return  make_raw::Tensor(sparse_ind2ptr(from_raw::Tensor(ind), M));
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
