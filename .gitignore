@@ -5,5 +5,5 @@
 .DS_Store
 inst/lib
 inst/bin
-src/lltm.lib
+src/torchsparselib.lib
 

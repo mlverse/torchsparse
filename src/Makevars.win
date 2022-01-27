@@ -2,10 +2,10 @@ PKG_CPPFLAGS = -I../inst/include/
 
 PKG_LIBS=\
 	-L. \
-  -llltm
+  -ltorchsparselib
 
-.PHONY: all lltm
-all: clean lltm
+.PHONY: all torchsparselib
+all: clean torchsparselib
 
 # Creates the import library from the .def file.
 # Keeping the def file in the source folder makes more sense because it's easy
@@ -14,8 +14,8 @@ all: clean lltm
 # But MingGW can't take the .def file as an input to the linker, so we need to
 # create the import library.
 lltm: clean
-	$(DLLTOOL) -d ../inst/def/lltm.def -l lltm.lib
+	$(DLLTOOL) -d ../inst/def/torchsparselib.def -l torchsparselib.lib
 
 clean:
-	rm -rf lltm.lib
+	rm -rf torchsparselib.lib
 
