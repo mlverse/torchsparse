@@ -13,6 +13,7 @@ set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "${TORCH_HOME}")
 
 # Now that the prefix path is set we can tell cmake to go
 # and find Torch.
+find_package(Python3 COMPONENTS Development)
 find_package(Torch REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
@@ -78,6 +79,7 @@ add_dependencies(torchsparselib PyTorchSparse-project)
 message(STATUS "${TORCH_LIBRARIES}")
 target_link_libraries(torchsparselib "${TORCH_LIBRARIES}")
 target_link_libraries(torchsparselib PyTorchSparse)
+target_link_libraries(torchsparselib Python3::Python)
 
 set_property(TARGET torchsparselib PROPERTY CXX_STANDARD 17)
 
