@@ -56,7 +56,7 @@ set(TORCHSPARSE_HEADERS include/torchsparse/torchsparse.h include/torchsparse/ex
 # We need to fill it manually as its used to link the Rcpp interface
 # with the `csrc` library.
 if(WIN32)
-  set(LLRM_SRC ${LLTM_SRC} lltm.def)
+  set(TORCHSPARSE_SRC ${TORCHSPARSE_SRC} torchsparse.def)
 endif()
 
 # Tell cmake to build the shared library.
@@ -73,12 +73,12 @@ set_property(TARGET torchsparselib
 
 add_dependencies(torchsparselib PyTorchSparse-project)
 
+set_property(TARGET torchsparselib PROPERTY CXX_STANDARD 17)
+
 # Tell cmake the libraries we want to link to.
 message(STATUS "${TORCH_LIBRARIES}")
 target_link_libraries(torchsparselib "${TORCH_LIBRARIES}")
 target_link_libraries(torchsparselib PyTorchSparse)
-
-set_property(TARGET torchsparselib PROPERTY CXX_STANDARD 17)
 
 add_custom_target(torchsparselib_export
   COMMAND Rscript -e "torchexport::export()"
@@ -116,3 +116,4 @@ include(CPack)
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../inst)
 install(TARGETS torchsparselib LIBRARY PUBLIC_HEADER DESTINATION include/torchsparse)
+install(DIRECTORY ${PyTorchSparse_DESTDIR}/ DESTINATION .)

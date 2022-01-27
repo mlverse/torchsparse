@@ -3,7 +3,10 @@
 .Rdata
 .httr-oauth
 .DS_Store
+inst/share
+inst/include
 inst/lib
-inst/bin
+!inst/include/torchsparse/exports.h
+!inst/include/torchsparse/torchsparse.h
 src/torchsparselib.lib
 
