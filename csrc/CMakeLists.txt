@@ -13,18 +13,17 @@ set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "${TORCH_HOME}")
 
 # Now that the prefix path is set we can tell cmake to go
 # and find Torch.
-find_package(Python3 COMPONENTS Development)
 find_package(Torch REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 # Setup compilation for pytorch_sparse
 include(ExternalProject)
 set(PyTorchSparse_DESTDIR ${CMAKE_CURRENT_BINARY_DIR}/lib/)
-set(PyTorchSparse_CMAKE_ARGS -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} -DCMAKE_INSTALL_PREFIX=${PyTorchSparse_DESTDIR})
+set(PyTorchSparse_CMAKE_ARGS -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} -DCMAKE_INSTALL_PREFIX=${PyTorchSparse_DESTDIR} -DWITH_PYTHON=OFF)
 
 ExternalProject_Add(PyTorchSparse-project
-  GIT_REPOSITORY https://github.com/rusty1s/pytorch_sparse
-  GIT_TAG master
+  GIT_REPOSITORY https://github.com/dfalbel/pytorch_sparse
+  GIT_TAG with_python
   CMAKE_ARGS ${PyTorchSparse_CMAKE_ARGS}
   PREFIX "${CMAKE_CURRENT_BINARY_DIR}/libpytorchsparse"
 )
@@ -79,7 +78,6 @@ add_dependencies(torchsparselib PyTorchSparse-project)
 message(STATUS "${TORCH_LIBRARIES}")
 target_link_libraries(torchsparselib "${TORCH_LIBRARIES}")
 target_link_libraries(torchsparselib PyTorchSparse)
-target_link_libraries(torchsparselib Python3::Python)
 
 set_property(TARGET torchsparselib PROPERTY CXX_STANDARD 17)
 
