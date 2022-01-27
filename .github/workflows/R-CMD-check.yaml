@@ -57,7 +57,7 @@ jobs:
           file: csrc/build/*.zip
           overwrite: true
           file_glob: true
-          tag: liblltm
+          tag: libtorchsparse
 
 
   R-CMD-check:
