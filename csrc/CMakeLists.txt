@@ -59,7 +59,7 @@ set(TORCHSPARSE_HEADERS include/torchsparse/torchsparse.h include/torchsparse/ex
 # We need to fill it manually as its used to link the Rcpp interface
 # with the `csrc` library.
 if(WIN32)
-  set(TORCHSPARSE_SRC ${TORCHSPARSE_SRC} torchsparse.def)
+  set(TORCHSPARSE_SRC ${TORCHSPARSE_SRC} src/torchsparse.def)
 endif()
 
 # Tell cmake to build the shared library.
