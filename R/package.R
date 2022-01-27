@@ -7,14 +7,15 @@ NULL
 .onLoad <- function(lib, pkg) {
   if (torch::torch_is_installed()) {
 
-    if (!lltm_is_installed())
-      install_lltm()
+    if (!torchsparse_is_installed())
+      install_torchsparse()
 
-    if (!lltm_is_installed()) {
+    if (!torchsparse_is_installed()) {
       if (interactive())
-        warning("liblltm is not installed. Run `intall_lltm()` before using the package.")
+        warning("libtorchsparse is not installed. Run `intall_torchsparse()` before using the package.")
     } else {
-      dyn.load(lib_path(), local = FALSE)
+      dyn.load(lib_path("torchsparse"), local = FALSE)
+      dyn.load(lib_path("torchsparselib"), local = FALSE)
 
       # when using devtools::load_all() the library might be available in
       # `lib/pkg/src`
@@ -22,25 +23,25 @@ NULL
       if (file.exists(pkgload))
         dyn.load(pkgload)
       else
-        library.dynam("lltm", pkg, lib)
+        library.dynam("torchsparse", pkg, lib)
     }
   }
 }
 
 inst_path <- function() {
-  install_path <- Sys.getenv("LLTM_HOME")
+  install_path <- Sys.getenv("TORCHSPARSE_HOME")
   if (nzchar(install_path)) return(install_path)
 
-  system.file("", package = "lltm")
+  system.file("", package = "torchsparse")
 }
 
-lib_path <- function() {
+lib_path <- function(name = "torchsparse") {
   install_path <- inst_path()
 
   if (.Platform$OS.type == "unix") {
-    file.path(install_path, "lib", paste0("liblltm", lib_ext()))
+    file.path(install_path, "lib", paste0("lib", name, lib_ext()))
   } else {
-    file.path(install_path, "bin", paste0("lltm", lib_ext()))
+    file.path(install_path, "bin", paste0(name, lib_ext()))
   }
 }
 
@@ -53,21 +54,21 @@ lib_ext <- function() {
     ".dll"
 }
 
-lltm_is_installed <- function() {
+torchsparse_is_installed <- function() {
   file.exists(lib_path())
 }
 
-install_lltm <- function(url = Sys.getenv("LLTM_URL", unset = NA)) {
+install_torchsparse <- function(url = Sys.getenv("TORCHSPARSE_URL", unset = NA)) {
 
   if (!interactive() && Sys.getenv("TORCH_INSTALL", unset = 0) == "0") return()
 
   if (is.na(url)) {
     tmp <- tempfile(fileext = ".zip")
-    version <- packageDescription("lltm")$Version
+    version <- packageDescription("torchsparse")$Version
     os <- get_cmake_style_os()
     dev <- if (torch::cuda_is_available()) "cu" else "cpu"
 
-    url <- sprintf("https://github.com/mlverse/lltm/releases/download/liblltm/lltm-%s+%s-%s.zip",
+    url <- sprintf("https://github.com/mlverse/torchsparse/releases/download/libtorchsparse/torchsparse-%s+%s-%s.zip",
                    version, dev, os)
   }
 
