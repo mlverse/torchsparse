@@ -1,4 +1,4 @@
 library(testthat)
-library(lltm)
+library(torchsparse)
 
-test_check("lltm")
+test_check("torchsparse")
