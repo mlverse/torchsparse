@@ -42,6 +42,9 @@ endif()
 add_library(PyTorchSparse SHARED IMPORTED)
 add_library(PyTorchSparse::library ALIAS PyTorchSparse)
 set_target_properties(PyTorchSparse PROPERTIES IMPORTED_LOCATION ${PyTorchSparse_LIB_LOCATION})
+if (WIN32)
+  set_target_properties(PyTorchSparse PROPERTIES IMPORTED_IMPLIB ${PyTorchSparse_DESTDIR}/lib/torchsparse.lib)
+endif()
 
 # Here we tell CMake what are the source files of our package.
 # If you want to separate your implementation in multiple files
