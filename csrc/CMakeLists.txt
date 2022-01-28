@@ -2,6 +2,9 @@
 project(torchsparselib)
 cmake_minimum_required(VERSION 3.16)
 
+# accommodate differing conventions
+include(GNUInstallDirs)
+
 # We find a LibTorch installation trough the torch package.
 # This is the best approach if we want to make sure we are
 # targetting the same LibTorch version as used by torch.
@@ -29,7 +32,7 @@ ExternalProject_Add(PyTorchSparse-project
 )
 
 SET(PyTorchSparse_INCLUDE_DIR ${PyTorchSparse_DESTDIR}/include)
-SET(PyTorchSparse_LIB_DIR ${PyTorchSparse_DESTDIR}/lib)
+SET(PyTorchSparse_LIB_DIR ${PyTorchSparse_DESTDIR}/${CMAKE_INSTALL_LIBDIR})
 
 if(APPLE)
   SET(PyTorchSparse_LIB_LOCATION ${PyTorchSparse_LIB_DIR}/libtorchsparse.dylib)
