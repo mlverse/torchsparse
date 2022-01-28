@@ -13,8 +13,8 @@ all: clean torchsparselib
 # a plain text file.
 # But MingGW can't take the .def file as an input to the linker, so we need to
 # create the import library.
-lltm: clean
-	$(DLLTOOL) -d ../inst/def/torchsparselib.def -l torchsparselib.lib
+torchsparselib: clean
+	$(DLLTOOL) -d ../inst/def/torchsparse.def -l torchsparselib.lib
 
 clean:
 	rm -rf torchsparselib.lib

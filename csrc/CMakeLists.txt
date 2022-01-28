@@ -23,7 +23,7 @@ set(PyTorchSparse_CMAKE_ARGS -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} -DCMAKE_IN
 
 ExternalProject_Add(PyTorchSparse-project
   GIT_REPOSITORY https://github.com/dfalbel/pytorch_sparse
-  GIT_TAG with_python
+  GIT_TAG test_export
   CMAKE_ARGS ${PyTorchSparse_CMAKE_ARGS}
   PREFIX "${CMAKE_CURRENT_BINARY_DIR}/libpytorchsparse"
 )
