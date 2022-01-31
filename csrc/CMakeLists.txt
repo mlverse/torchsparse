@@ -19,11 +19,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 # Setup compilation for pytorch_sparse
 include(ExternalProject)
 set(PyTorchSparse_DESTDIR ${CMAKE_CURRENT_BINARY_DIR}/lib/)
-set(PyTorchSparse_CMAKE_ARGS -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} -DCMAKE_INSTALL_PREFIX=${PyTorchSparse_DESTDIR} -DWITH_PYTHON=OFF -DCMAKE_BUILD_TYPE=Release)
+set(PyTorchSparse_CMAKE_ARGS -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} -DCMAKE_INSTALL_PREFIX=${PyTorchSparse_DESTDIR} -DWITH_PYTHON=OFF)
 
 ExternalProject_Add(PyTorchSparse-project
   GIT_REPOSITORY https://github.com/dfalbel/pytorch_sparse
-  GIT_TAG test_export
+  GIT_TAG export-symbols
   CMAKE_ARGS ${PyTorchSparse_CMAKE_ARGS}
   PREFIX "${CMAKE_CURRENT_BINARY_DIR}/libpytorchsparse"
 )
