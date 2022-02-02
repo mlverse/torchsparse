@@ -5,3 +5,7 @@ rcpp_sparse_ind2ptr <- function(ind, M) {
     .Call('_torchsparse_rcpp_sparse_ind2ptr', PACKAGE = 'torchsparse', ind, M)
 }
 
+rcpp_sparse_ptr2ind <- function(ptr, E) {
+    .Call('_torchsparse_rcpp_sparse_ptr2ind', PACKAGE = 'torchsparse', ptr, E)
+}
+

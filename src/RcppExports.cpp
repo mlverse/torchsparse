@@ -23,9 +23,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_sparse_ptr2ind
+torch::Tensor rcpp_sparse_ptr2ind(torch::Tensor ptr, int64_t E);
+RcppExport SEXP _torchsparse_rcpp_sparse_ptr2ind(SEXP ptrSEXP, SEXP ESEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type ptr(ptrSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type E(ESEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_ptr2ind(ptr, E));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_ind2ptr", (DL_FUNC) &_torchsparse_rcpp_sparse_ind2ptr, 2},
+    {"_torchsparse_rcpp_sparse_ptr2ind", (DL_FUNC) &_torchsparse_rcpp_sparse_ptr2ind, 2},
     {NULL, NULL, 0}
 };
 

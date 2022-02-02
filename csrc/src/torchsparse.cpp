@@ -11,7 +11,9 @@ torch::Tensor sparse_ind2ptr(torch::Tensor ind, int64_t M) {
   return ind2ptr(ind, M);
 }
 
-torch::Tensor sparse_sigmoid(torch::Tensor z) {
-  auto s = torch::sigmoid(z);
-  return (1 - s) * s;
+// [[torch::export]]
+torch::Tensor sparse_ptr2ind(torch::Tensor ptr, int64_t E) {
+  return ptr2ind(ptr, E);
 }
+
+

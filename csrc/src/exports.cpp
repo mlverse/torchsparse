@@ -20,3 +20,10 @@ TORCHSPARSE_API void* _sparse_ind2ptr (void* ind, int64_t M) {
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+torch::Tensor sparse_ptr2ind (torch::Tensor ptr, int64_t E);
+TORCHSPARSE_API void* _sparse_ptr2ind (void* ptr, int64_t E) {
+  try {
+    return  make_raw::Tensor(sparse_ptr2ind(from_raw::Tensor(ptr), E));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}

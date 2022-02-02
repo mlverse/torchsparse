@@ -8,3 +8,7 @@
 torch::Tensor rcpp_sparse_ind2ptr (torch::Tensor ind, int64_t M) {
   return  sparse_ind2ptr(ind.get(), M);
 }
+// [[Rcpp::export]]
+torch::Tensor rcpp_sparse_ptr2ind (torch::Tensor ptr, int64_t E) {
+  return  sparse_ptr2ind(ptr.get(), E);
+}

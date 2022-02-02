@@ -26,10 +26,16 @@ TORCHSPARSE_API void* torchsparse_last_error ();
 TORCHSPARSE_API void torchsparse_last_error_clear();
 
 TORCHSPARSE_API void* _sparse_ind2ptr (void* ind, int64_t M);
+TORCHSPARSE_API void* _sparse_ptr2ind (void* ptr, int64_t E);
 
 #ifdef RCPP_VERSION
 inline void* sparse_ind2ptr (void* ind, int64_t M) {
   auto ret =  _sparse_ind2ptr(ind, M);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_ptr2ind (void* ptr, int64_t E) {
+  auto ret =  _sparse_ptr2ind(ptr, E);
   host_exception_handler();
   return ret;
 }
