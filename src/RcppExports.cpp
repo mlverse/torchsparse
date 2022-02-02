@@ -35,10 +35,25 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_sparse_random_walk
+torch::Tensor rcpp_sparse_random_walk(torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length);
+RcppExport SEXP _torchsparse_rcpp_sparse_random_walk(SEXP rowptrSEXP, SEXP colSEXP, SEXP startSEXP, SEXP walk_lengthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type start(startSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type walk_length(walk_lengthSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_random_walk(rowptr, col, start, walk_length));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_ind2ptr", (DL_FUNC) &_torchsparse_rcpp_sparse_ind2ptr, 2},
     {"_torchsparse_rcpp_sparse_ptr2ind", (DL_FUNC) &_torchsparse_rcpp_sparse_ptr2ind, 2},
+    {"_torchsparse_rcpp_sparse_random_walk", (DL_FUNC) &_torchsparse_rcpp_sparse_random_walk, 4},
     {NULL, NULL, 0}
 };
 

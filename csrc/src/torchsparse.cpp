@@ -16,4 +16,21 @@ torch::Tensor sparse_ptr2ind(torch::Tensor ptr, int64_t E) {
   return ptr2ind(ptr, E);
 }
 
+// torch::Tensor partition(torch::Tensor rowptr,
+//                         torch::Tensor col,
+//                         torch::optional<torch::Tensor> optional_value,
+//                         int64_t num_parts,
+//                         bool recursive) {
+//   return partition(rowptr, col, optional_value, num_parts, recursive);
+// }
+
+// std::tuple<torch::Tensor, torch::Tensor> relabel(torch::Tensor col, torch::Tensor idx) {
+//   return relabel(col, idx);
+// }
+
+// [[torch::export]]
+torch::Tensor sparse_random_walk(torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length) {
+  return random_walk(rowptr, col, start, walk_length);
+}
+
 

@@ -9,3 +9,7 @@ rcpp_sparse_ptr2ind <- function(ptr, E) {
     .Call('_torchsparse_rcpp_sparse_ptr2ind', PACKAGE = 'torchsparse', ptr, E)
 }
 
+rcpp_sparse_random_walk <- function(rowptr, col, start, walk_length) {
+    .Call('_torchsparse_rcpp_sparse_random_walk', PACKAGE = 'torchsparse', rowptr, col, start, walk_length)
+}
+

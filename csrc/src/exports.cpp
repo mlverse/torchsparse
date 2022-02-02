@@ -27,3 +27,10 @@ TORCHSPARSE_API void* _sparse_ptr2ind (void* ptr, int64_t E) {
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+torch::Tensor sparse_random_walk (torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length);
+TORCHSPARSE_API void* _sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length) {
+  try {
+    return  make_raw::Tensor(sparse_random_walk(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::Tensor(start), walk_length));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
