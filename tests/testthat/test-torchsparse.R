@@ -1,11 +1,5 @@
-test_that("multiplication works", {
+test_that("rcpp_sparse_ind2ptr, rcpp_sparse_ptr2ind", {
 
-  expect_error(
-    rcpp_sparse_ind2ptr(torch::torch_tensor(1), 1)
-  )
-
-  expect_error(
-    rcpp_sparse_ptr2ind(torch::torch_tensor(1), 1)
-  )
+  expect_length(as.numeric(rcpp_sparse_ind2ptr(rcpp_sparse_ptr2ind(torch::torch_tensor(1L), 1), 1)), 2)
 
 })
