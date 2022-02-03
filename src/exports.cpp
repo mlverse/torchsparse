@@ -13,6 +13,18 @@ torch::Tensor rcpp_sparse_ptr2ind (torch::Tensor ptr, int64_t E) {
   return  sparse_ptr2ind(ptr.get(), E);
 }
 // [[Rcpp::export]]
+torch::Tensor rcpp_partition (torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, int64_t num_parts, bool recursive) {
+  return  partition(rowptr.get(), col.get(), optional_value.get(), num_parts, recursive);
+}
+// [[Rcpp::export]]
 torch::Tensor rcpp_sparse_random_walk (torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length) {
   return  sparse_random_walk(rowptr.get(), col.get(), start.get(), walk_length);
+}
+// [[Rcpp::export]]
+torch::Tensor rcpp_sparse_spmm_sum (torch::optional::Tensor opt_row, torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor opt_value, torch::optional::Tensor opt_colptr, torch::optional::Tensor opt_csr2csc, torch::Tensor mat) {
+  return  sparse_spmm_sum(opt_row.get(), rowptr.get(), col.get(), opt_value.get(), opt_colptr.get(), opt_csr2csc.get(), mat.get());
+}
+// [[Rcpp::export]]
+torch::Tensor rcpp_sparse_spmm_mean (torch::optional::Tensor opt_row, torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor opt_value, torch::optional::Tensor opt_rowcount, torch::optional::Tensor opt_colptr, torch::optional::Tensor opt_csr2csc, torch::Tensor mat) {
+  return  sparse_spmm_mean(opt_row.get(), rowptr.get(), col.get(), opt_value.get(), opt_rowcount.get(), opt_colptr.get(), opt_csr2csc.get(), mat.get());
 }

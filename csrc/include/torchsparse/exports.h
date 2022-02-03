@@ -27,7 +27,10 @@ TORCHSPARSE_API void torchsparse_last_error_clear();
 
 TORCHSPARSE_API void* _sparse_ind2ptr (void* ind, int64_t M);
 TORCHSPARSE_API void* _sparse_ptr2ind (void* ptr, int64_t E);
+TORCHSPARSE_API void* _partition (void* rowptr, void* col, void* optional_value, int64_t num_parts, bool recursive);
 TORCHSPARSE_API void* _sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length);
+TORCHSPARSE_API void* _sparse_spmm_sum (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_colptr, void* opt_csr2csc, void* mat);
+TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_rowcount, void* opt_colptr, void* opt_csr2csc, void* mat);
 
 #ifdef RCPP_VERSION
 inline void* sparse_ind2ptr (void* ind, int64_t M) {
@@ -40,8 +43,23 @@ inline void* sparse_ptr2ind (void* ptr, int64_t E) {
   host_exception_handler();
   return ret;
 }
+inline void* partition (void* rowptr, void* col, void* optional_value, int64_t num_parts, bool recursive) {
+  auto ret =  _partition(rowptr, col, optional_value, num_parts, recursive);
+  host_exception_handler();
+  return ret;
+}
 inline void* sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length) {
   auto ret =  _sparse_random_walk(rowptr, col, start, walk_length);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_spmm_sum (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_colptr, void* opt_csr2csc, void* mat) {
+  auto ret =  _sparse_spmm_sum(opt_row, rowptr, col, opt_value, opt_colptr, opt_csr2csc, mat);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_rowcount, void* opt_colptr, void* opt_csr2csc, void* mat) {
+  auto ret =  _sparse_spmm_mean(opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat);
   host_exception_handler();
   return ret;
 }

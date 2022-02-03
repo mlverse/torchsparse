@@ -27,10 +27,31 @@ TORCHSPARSE_API void* _sparse_ptr2ind (void* ptr, int64_t E) {
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+torch::Tensor partition (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> optional_value, int64_t num_parts, bool recursive);
+TORCHSPARSE_API void* _partition (void* rowptr, void* col, void* optional_value, int64_t num_parts, bool recursive) {
+  try {
+    return  make_raw::Tensor(partition(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(optional_value), num_parts, recursive));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 torch::Tensor sparse_random_walk (torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length);
 TORCHSPARSE_API void* _sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length) {
   try {
     return  make_raw::Tensor(sparse_random_walk(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::Tensor(start), walk_length));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor sparse_spmm_sum (torch::optional<torch::Tensor> opt_row, torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> opt_value, torch::optional<torch::Tensor> opt_colptr, torch::optional<torch::Tensor> opt_csr2csc, torch::Tensor mat);
+TORCHSPARSE_API void* _sparse_spmm_sum (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_colptr, void* opt_csr2csc, void* mat) {
+  try {
+    return  make_raw::Tensor(sparse_spmm_sum(from_raw::optional::Tensor(opt_row), from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(opt_value), from_raw::optional::Tensor(opt_colptr), from_raw::optional::Tensor(opt_csr2csc), from_raw::Tensor(mat)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor sparse_spmm_mean (torch::optional<torch::Tensor> opt_row, torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> opt_value, torch::optional<torch::Tensor> opt_rowcount, torch::optional<torch::Tensor> opt_colptr, torch::optional<torch::Tensor> opt_csr2csc, torch::Tensor mat);
+TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_rowcount, void* opt_colptr, void* opt_csr2csc, void* mat) {
+  try {
+    return  make_raw::Tensor(sparse_spmm_mean(from_raw::optional::Tensor(opt_row), from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(opt_value), from_raw::optional::Tensor(opt_rowcount), from_raw::optional::Tensor(opt_colptr), from_raw::optional::Tensor(opt_csr2csc), from_raw::Tensor(mat)));
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }

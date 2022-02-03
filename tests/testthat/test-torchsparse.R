@@ -14,10 +14,30 @@ test_that("rcpp_sparse_ptr2ind", {
 
 })
 
+test_that("rcpp_partition", {
+
+  NULL
+
+
+})
+
 test_that("rcpp_sparse_random_walk", {
 
   w <- rcpp_sparse_random_walk(torch::torch_tensor(c(0, 1, 2), dtype = torch::torch_long()), torch::torch_tensor(1L), torch::torch_tensor(1L), 1)
   expect_equal(length(dim(w)), 2)
 
 })
+
+test_that("rcpp_sparse_spmm_sum", {
+
+ NULL
+
+})
+
+test_that("rcpp_sparse_spmm_mean", {
+
+  NULL
+
+})
+
 
