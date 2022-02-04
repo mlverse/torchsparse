@@ -18,6 +18,17 @@ test_that("rcpp_partition", {
 
   NULL
 
+})
+
+test_that("rcpp_partition2", {
+
+  NULL
+
+})
+
+test_that("rcpp_mt_partition", {
+
+  NULL
 
 })
 

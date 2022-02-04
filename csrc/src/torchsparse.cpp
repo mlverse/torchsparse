@@ -25,6 +25,27 @@ torch::Tensor partition(torch::Tensor rowptr,
   return partition(rowptr, col, optional_value, num_parts, recursive);
 }
 
+// [[torch::export]]
+torch::Tensor partition2(torch::Tensor rowptr,
+                         torch::Tensor col,
+                         torch::optional<torch::Tensor> optional_value,
+                         torch::optional<torch::Tensor> optional_node_weight,
+                         int64_t num_parts,
+                         bool recursive) {
+  return partition2(rowptr, col, optional_value, optional_node_weight, num_parts, recursive);
+}
+
+// [[torch::export]]
+torch::Tensor mt_partition(torch::Tensor rowptr,
+                           torch::Tensor col,
+                           torch::optional<torch::Tensor> optional_value,
+                           torch::optional<torch::Tensor> optional_node_weight,
+                           int64_t num_parts,
+                           bool recursive,
+                           int64_t num_workers) {
+  return mt_partition(rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers);
+}
+
 // std::tuple<torch::Tensor, torch::Tensor> relabel(torch::Tensor col, torch::Tensor idx) {
 //   return relabel(col, idx);
 // }

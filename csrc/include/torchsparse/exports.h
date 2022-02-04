@@ -28,6 +28,8 @@ TORCHSPARSE_API void torchsparse_last_error_clear();
 TORCHSPARSE_API void* _sparse_ind2ptr (void* ind, int64_t M);
 TORCHSPARSE_API void* _sparse_ptr2ind (void* ptr, int64_t E);
 TORCHSPARSE_API void* _partition (void* rowptr, void* col, void* optional_value, int64_t num_parts, bool recursive);
+TORCHSPARSE_API void* _partition2 (void* rowptr, void* col, void* optional_value, void* optional_node_weight, int64_t num_parts, bool recursive);
+TORCHSPARSE_API void* _mt_partition (void* rowptr, void* col, void* optional_value, void* optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers);
 TORCHSPARSE_API void* _sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length);
 TORCHSPARSE_API void* _sparse_spmm_sum (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_colptr, void* opt_csr2csc, void* mat);
 TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_rowcount, void* opt_colptr, void* opt_csr2csc, void* mat);
@@ -45,6 +47,16 @@ inline void* sparse_ptr2ind (void* ptr, int64_t E) {
 }
 inline void* partition (void* rowptr, void* col, void* optional_value, int64_t num_parts, bool recursive) {
   auto ret =  _partition(rowptr, col, optional_value, num_parts, recursive);
+  host_exception_handler();
+  return ret;
+}
+inline void* partition2 (void* rowptr, void* col, void* optional_value, void* optional_node_weight, int64_t num_parts, bool recursive) {
+  auto ret =  _partition2(rowptr, col, optional_value, optional_node_weight, num_parts, recursive);
+  host_exception_handler();
+  return ret;
+}
+inline void* mt_partition (void* rowptr, void* col, void* optional_value, void* optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers) {
+  auto ret =  _mt_partition(rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers);
   host_exception_handler();
   return ret;
 }

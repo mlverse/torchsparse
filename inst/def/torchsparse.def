@@ -6,6 +6,8 @@ EXPORTS
   _sparse_ind2ptr
   _sparse_ptr2ind
   _partition
+  _partition2
+  _mt_partition
   _sparse_random_walk
   _sparse_spmm_sum
   _sparse_spmm_mean

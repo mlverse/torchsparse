@@ -17,6 +17,14 @@ torch::Tensor rcpp_partition (torch::Tensor rowptr, torch::Tensor col, torch::op
   return  partition(rowptr.get(), col.get(), optional_value.get(), num_parts, recursive);
 }
 // [[Rcpp::export]]
+torch::Tensor rcpp_partition2 (torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive) {
+  return  partition2(rowptr.get(), col.get(), optional_value.get(), optional_node_weight.get(), num_parts, recursive);
+}
+// [[Rcpp::export]]
+torch::Tensor rcpp_mt_partition (torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers) {
+  return  mt_partition(rowptr.get(), col.get(), optional_value.get(), optional_node_weight.get(), num_parts, recursive, num_workers);
+}
+// [[Rcpp::export]]
 torch::Tensor rcpp_sparse_random_walk (torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length) {
   return  sparse_random_walk(rowptr.get(), col.get(), start.get(), walk_length);
 }

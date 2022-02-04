@@ -34,6 +34,20 @@ TORCHSPARSE_API void* _partition (void* rowptr, void* col, void* optional_value,
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+torch::Tensor partition2 (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> optional_value, torch::optional<torch::Tensor> optional_node_weight, int64_t num_parts, bool recursive);
+TORCHSPARSE_API void* _partition2 (void* rowptr, void* col, void* optional_value, void* optional_node_weight, int64_t num_parts, bool recursive) {
+  try {
+    return  make_raw::Tensor(partition2(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(optional_value), from_raw::optional::Tensor(optional_node_weight), num_parts, recursive));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor mt_partition (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> optional_value, torch::optional<torch::Tensor> optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers);
+TORCHSPARSE_API void* _mt_partition (void* rowptr, void* col, void* optional_value, void* optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers) {
+  try {
+    return  make_raw::Tensor(mt_partition(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(optional_value), from_raw::optional::Tensor(optional_node_weight), num_parts, recursive, num_workers));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 torch::Tensor sparse_random_walk (torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length);
 TORCHSPARSE_API void* _sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length) {
   try {
