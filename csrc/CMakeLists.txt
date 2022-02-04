@@ -25,8 +25,8 @@ set(PyTorchSparse_DESTDIR ${CMAKE_CURRENT_BINARY_DIR}/lib/)
 set(PyTorchSparse_CMAKE_ARGS -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH} -DCMAKE_INSTALL_PREFIX=${PyTorchSparse_DESTDIR} -DWITH_PYTHON=OFF)
 
 ExternalProject_Add(PyTorchSparse-project
-  GIT_REPOSITORY https://github.com/dfalbel/pytorch_sparse
-  GIT_TAG export-symbols
+  GIT_REPOSITORY https://github.com/rusty1s/pytorch_sparse
+  GIT_TAG master
   CMAKE_ARGS ${PyTorchSparse_CMAKE_ARGS}
   PREFIX "${CMAKE_CURRENT_BINARY_DIR}/libpytorchsparse"
 )
