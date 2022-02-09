@@ -21,6 +21,10 @@ rcpp_mt_partition <- function(rowptr, col, optional_value, optional_node_weight,
     .Call('_torchsparse_rcpp_mt_partition', PACKAGE = 'torchsparse', rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers)
 }
 
+rcpp_relabel <- function(col, idx) {
+    .Call('_torchsparse_rcpp_relabel', PACKAGE = 'torchsparse', col, idx)
+}
+
 rcpp_sparse_random_walk <- function(rowptr, col, start, walk_length) {
     .Call('_torchsparse_rcpp_sparse_random_walk', PACKAGE = 'torchsparse', rowptr, col, start, walk_length)
 }

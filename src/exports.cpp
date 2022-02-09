@@ -3,6 +3,7 @@
 #include <torch.h>
 #define TORCHSPARSE_HEADERS_ONLY
 #include <torchsparse/torchsparse.h>
+#include "torchsparse_types.h"
 
 // [[Rcpp::export]]
 torch::Tensor rcpp_sparse_ind2ptr (torch::Tensor ind, int64_t M) {
@@ -23,6 +24,10 @@ torch::Tensor rcpp_partition2 (torch::Tensor rowptr, torch::Tensor col, torch::o
 // [[Rcpp::export]]
 torch::Tensor rcpp_mt_partition (torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers) {
   return  mt_partition(rowptr.get(), col.get(), optional_value.get(), optional_node_weight.get(), num_parts, recursive, num_workers);
+}
+// [[Rcpp::export]]
+torchsparse::tensor_pair rcpp_relabel (torch::Tensor col, torch::Tensor idx) {
+  return  relabel(col.get(), idx.get());
 }
 // [[Rcpp::export]]
 torch::Tensor rcpp_sparse_random_walk (torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length) {

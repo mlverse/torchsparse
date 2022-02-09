@@ -83,6 +83,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_relabel
+torchsparse::tensor_pair rcpp_relabel(torch::Tensor col, torch::Tensor idx);
+RcppExport SEXP _torchsparse_rcpp_relabel(SEXP colSEXP, SEXP idxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type idx(idxSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_relabel(col, idx));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_sparse_random_walk
 torch::Tensor rcpp_sparse_random_walk(torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length);
 RcppExport SEXP _torchsparse_rcpp_sparse_random_walk(SEXP rowptrSEXP, SEXP colSEXP, SEXP startSEXP, SEXP walk_lengthSEXP) {
@@ -139,6 +151,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_partition", (DL_FUNC) &_torchsparse_rcpp_partition, 5},
     {"_torchsparse_rcpp_partition2", (DL_FUNC) &_torchsparse_rcpp_partition2, 6},
     {"_torchsparse_rcpp_mt_partition", (DL_FUNC) &_torchsparse_rcpp_mt_partition, 7},
+    {"_torchsparse_rcpp_relabel", (DL_FUNC) &_torchsparse_rcpp_relabel, 2},
     {"_torchsparse_rcpp_sparse_random_walk", (DL_FUNC) &_torchsparse_rcpp_sparse_random_walk, 4},
     {"_torchsparse_rcpp_sparse_spmm_sum", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_sum, 7},
     {"_torchsparse_rcpp_sparse_spmm_mean", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_mean, 8},
