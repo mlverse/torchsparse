@@ -5,3 +5,31 @@ rcpp_sparse_ind2ptr <- function(ind, M) {
     .Call('_torchsparse_rcpp_sparse_ind2ptr', PACKAGE = 'torchsparse', ind, M)
 }
 
+rcpp_sparse_ptr2ind <- function(ptr, E) {
+    .Call('_torchsparse_rcpp_sparse_ptr2ind', PACKAGE = 'torchsparse', ptr, E)
+}
+
+rcpp_partition <- function(rowptr, col, optional_value, num_parts, recursive) {
+    .Call('_torchsparse_rcpp_partition', PACKAGE = 'torchsparse', rowptr, col, optional_value, num_parts, recursive)
+}
+
+rcpp_partition2 <- function(rowptr, col, optional_value, optional_node_weight, num_parts, recursive) {
+    .Call('_torchsparse_rcpp_partition2', PACKAGE = 'torchsparse', rowptr, col, optional_value, optional_node_weight, num_parts, recursive)
+}
+
+rcpp_mt_partition <- function(rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers) {
+    .Call('_torchsparse_rcpp_mt_partition', PACKAGE = 'torchsparse', rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers)
+}
+
+rcpp_sparse_random_walk <- function(rowptr, col, start, walk_length) {
+    .Call('_torchsparse_rcpp_sparse_random_walk', PACKAGE = 'torchsparse', rowptr, col, start, walk_length)
+}
+
+rcpp_sparse_spmm_sum <- function(opt_row, rowptr, col, opt_value, opt_colptr, opt_csr2csc, mat) {
+    .Call('_torchsparse_rcpp_sparse_spmm_sum', PACKAGE = 'torchsparse', opt_row, rowptr, col, opt_value, opt_colptr, opt_csr2csc, mat)
+}
+
+rcpp_sparse_spmm_mean <- function(opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat) {
+    .Call('_torchsparse_rcpp_sparse_spmm_mean', PACKAGE = 'torchsparse', opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat)
+}
+
