@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "torchsparse/torchsparse.h"
+#include "torchsparse/torchsparse_types.h"
 #include <torchsparse/sparse.h>
 
 // [[torch::export]]
@@ -17,7 +18,7 @@ torch::Tensor sparse_ptr2ind(torch::Tensor ptr, int64_t E) {
 }
 
 // [[torch::export]]
-torch::Tensor partition(torch::Tensor rowptr,
+torch::Tensor sparse_partition(torch::Tensor rowptr,
                         torch::Tensor col,
                         torch::optional<torch::Tensor> optional_value,
                         int64_t num_parts,
@@ -26,7 +27,7 @@ torch::Tensor partition(torch::Tensor rowptr,
 }
 
 // [[torch::export]]
-torch::Tensor partition2(torch::Tensor rowptr,
+torch::Tensor sparse_partition2(torch::Tensor rowptr,
                          torch::Tensor col,
                          torch::optional<torch::Tensor> optional_value,
                          torch::optional<torch::Tensor> optional_node_weight,
@@ -36,7 +37,7 @@ torch::Tensor partition2(torch::Tensor rowptr,
 }
 
 // [[torch::export]]
-torch::Tensor mt_partition(torch::Tensor rowptr,
+torch::Tensor sparse_mt_partition(torch::Tensor rowptr,
                            torch::Tensor col,
                            torch::optional<torch::Tensor> optional_value,
                            torch::optional<torch::Tensor> optional_node_weight,
@@ -46,9 +47,10 @@ torch::Tensor mt_partition(torch::Tensor rowptr,
   return mt_partition(rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers);
 }
 
-// std::tuple<torch::Tensor, torch::Tensor> relabel(torch::Tensor col, torch::Tensor idx) {
-//   return relabel(col, idx);
-// }
+// [[torch::export(register_types=c("tensor_pair", "TensorPair", "void*", "torchsparse::tensor_pair"))]]
+tensor_pair sparse_relabel(torch::Tensor col, torch::Tensor idx) {
+  return relabel(col, idx);
+}
 
 // [[torch::export]]
 torch::Tensor sparse_random_walk(torch::Tensor rowptr, torch::Tensor col, torch::Tensor start, int64_t walk_length) {
@@ -77,5 +79,6 @@ torch::Tensor sparse_spmm_mean(torch::optional<torch::Tensor> opt_row,
                                torch::Tensor mat) {
   return spmm_mean(opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat);
 }
+
 
 

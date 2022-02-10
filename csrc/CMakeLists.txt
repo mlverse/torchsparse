@@ -53,7 +53,7 @@ endif()
 # If you want to separate your implementation in multiple files
 # add their paths after `src/lltm.cpp`, the spearator is a simple
 # space.
-set(TORCHSPARSE_SRC src/torchsparse.cpp src/exports.cpp)
+set(TORCHSPARSE_SRC src/torchsparse.cpp src/torchsparse_types.cpp src/exports.cpp)
 set(TORCHSPARSE_HEADERS include/torchsparse/torchsparse.h include/torchsparse/exports.h)
 
 # On Windows we use module definition files to declare what are
