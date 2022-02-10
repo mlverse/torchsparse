@@ -18,7 +18,7 @@ torch::Tensor sparse_ptr2ind(torch::Tensor ptr, int64_t E) {
 }
 
 // [[torch::export]]
-torch::Tensor partition(torch::Tensor rowptr,
+torch::Tensor sparse_partition(torch::Tensor rowptr,
                         torch::Tensor col,
                         torch::optional<torch::Tensor> optional_value,
                         int64_t num_parts,
@@ -27,7 +27,7 @@ torch::Tensor partition(torch::Tensor rowptr,
 }
 
 // [[torch::export]]
-torch::Tensor partition2(torch::Tensor rowptr,
+torch::Tensor sparse_partition2(torch::Tensor rowptr,
                          torch::Tensor col,
                          torch::optional<torch::Tensor> optional_value,
                          torch::optional<torch::Tensor> optional_node_weight,
@@ -37,7 +37,7 @@ torch::Tensor partition2(torch::Tensor rowptr,
 }
 
 // [[torch::export]]
-torch::Tensor mt_partition(torch::Tensor rowptr,
+torch::Tensor sparse_mt_partition(torch::Tensor rowptr,
                            torch::Tensor col,
                            torch::optional<torch::Tensor> optional_value,
                            torch::optional<torch::Tensor> optional_node_weight,
@@ -48,7 +48,7 @@ torch::Tensor mt_partition(torch::Tensor rowptr,
 }
 
 // [[torch::export(register_types=c("tensor_pair", "TensorPair", "void*", "torchsparse::tensor_pair"))]]
-tensor_pair relabel(torch::Tensor col, torch::Tensor idx) {
+tensor_pair sparse_relabel(torch::Tensor col, torch::Tensor idx) {
   return relabel(col, idx);
 }
 

@@ -1,18 +1,21 @@
 #include <Rcpp.h>
 #include "torchsparse_types.h"
-#define TORCHSPARSE_HEADERS_ONLY
-#include <torchsparse/torchsparse.h>
+#include "exports.h"
 
 namespace torchsparse {
 
+void* tensor_pair::get() {
+  return ptr.get();
+}
+
 tensor_pair::operator SEXP () const {
   Rcpp::List out;
-  out.push_back(torch::Tensor(tensor_pair_get_first(ptr.get())));
-  out.push_back(torch::Tensor(tensor_pair_get_second(ptr.get())));
+  out.push_back(rcpp_tensor_pair_get_first(*this));
+  out.push_back(rcpp_tensor_pair_get_second(*this));
   return out;
 }
 
-tensor_pair::tensor_pair (void* x) : ptr(x, delete_tensor_pair) {};
+tensor_pair::tensor_pair (void* x) : ptr(x, rcpp_delete_tensor_pair) {};
 
 }
 

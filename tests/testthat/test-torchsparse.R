@@ -51,4 +51,11 @@ test_that("rcpp_sparse_spmm_mean", {
 
 })
 
+test_that("rcpp_relabel", {
+
+  col <- torch::torch_randint(1, 100, size = 100)$to(dtype = torch::torch_int64())
+  idx <- torch::torch_randint(1, 100, size = 100)$to(dtype = torch::torch_int64())
+  expect_length(rcpp_sparse_relabel(col, idx), 2)
+
+})
 

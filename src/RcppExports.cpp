@@ -35,9 +35,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpp_partition
-torch::Tensor rcpp_partition(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, int64_t num_parts, bool recursive);
-RcppExport SEXP _torchsparse_rcpp_partition(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP num_partsSEXP, SEXP recursiveSEXP) {
+// rcpp_sparse_partition
+torch::Tensor rcpp_sparse_partition(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, int64_t num_parts, bool recursive);
+RcppExport SEXP _torchsparse_rcpp_sparse_partition(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP num_partsSEXP, SEXP recursiveSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -46,13 +46,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< torch::optional::Tensor >::type optional_value(optional_valueSEXP);
     Rcpp::traits::input_parameter< int64_t >::type num_parts(num_partsSEXP);
     Rcpp::traits::input_parameter< bool >::type recursive(recursiveSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_partition(rowptr, col, optional_value, num_parts, recursive));
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_partition(rowptr, col, optional_value, num_parts, recursive));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpp_partition2
-torch::Tensor rcpp_partition2(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive);
-RcppExport SEXP _torchsparse_rcpp_partition2(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP optional_node_weightSEXP, SEXP num_partsSEXP, SEXP recursiveSEXP) {
+// rcpp_sparse_partition2
+torch::Tensor rcpp_sparse_partition2(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive);
+RcppExport SEXP _torchsparse_rcpp_sparse_partition2(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP optional_node_weightSEXP, SEXP num_partsSEXP, SEXP recursiveSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -62,13 +62,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< torch::optional::Tensor >::type optional_node_weight(optional_node_weightSEXP);
     Rcpp::traits::input_parameter< int64_t >::type num_parts(num_partsSEXP);
     Rcpp::traits::input_parameter< bool >::type recursive(recursiveSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_partition2(rowptr, col, optional_value, optional_node_weight, num_parts, recursive));
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_partition2(rowptr, col, optional_value, optional_node_weight, num_parts, recursive));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpp_mt_partition
-torch::Tensor rcpp_mt_partition(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers);
-RcppExport SEXP _torchsparse_rcpp_mt_partition(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP optional_node_weightSEXP, SEXP num_partsSEXP, SEXP recursiveSEXP, SEXP num_workersSEXP) {
+// rcpp_sparse_mt_partition
+torch::Tensor rcpp_sparse_mt_partition(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::optional::Tensor optional_node_weight, int64_t num_parts, bool recursive, int64_t num_workers);
+RcppExport SEXP _torchsparse_rcpp_sparse_mt_partition(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP optional_node_weightSEXP, SEXP num_partsSEXP, SEXP recursiveSEXP, SEXP num_workersSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -79,19 +79,19 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int64_t >::type num_parts(num_partsSEXP);
     Rcpp::traits::input_parameter< bool >::type recursive(recursiveSEXP);
     Rcpp::traits::input_parameter< int64_t >::type num_workers(num_workersSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_mt_partition(rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers));
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_mt_partition(rowptr, col, optional_value, optional_node_weight, num_parts, recursive, num_workers));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpp_relabel
-torchsparse::tensor_pair rcpp_relabel(torch::Tensor col, torch::Tensor idx);
-RcppExport SEXP _torchsparse_rcpp_relabel(SEXP colSEXP, SEXP idxSEXP) {
+// rcpp_sparse_relabel
+torchsparse::tensor_pair rcpp_sparse_relabel(torch::Tensor col, torch::Tensor idx);
+RcppExport SEXP _torchsparse_rcpp_sparse_relabel(SEXP colSEXP, SEXP idxSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
     Rcpp::traits::input_parameter< torch::Tensor >::type idx(idxSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_relabel(col, idx));
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_relabel(col, idx));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -144,17 +144,52 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_delete_tensor_pair
+void rcpp_delete_tensor_pair(void* x);
+RcppExport SEXP _torchsparse_rcpp_delete_tensor_pair(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< void* >::type x(xSEXP);
+    rcpp_delete_tensor_pair(x);
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_tensor_pair_get_first
+torch::Tensor rcpp_tensor_pair_get_first(torchsparse::tensor_pair x);
+RcppExport SEXP _torchsparse_rcpp_tensor_pair_get_first(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_pair >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_pair_get_first(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_pair_get_second
+torch::Tensor rcpp_tensor_pair_get_second(torchsparse::tensor_pair x);
+RcppExport SEXP _torchsparse_rcpp_tensor_pair_get_second(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_pair >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_pair_get_second(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_ind2ptr", (DL_FUNC) &_torchsparse_rcpp_sparse_ind2ptr, 2},
     {"_torchsparse_rcpp_sparse_ptr2ind", (DL_FUNC) &_torchsparse_rcpp_sparse_ptr2ind, 2},
-    {"_torchsparse_rcpp_partition", (DL_FUNC) &_torchsparse_rcpp_partition, 5},
-    {"_torchsparse_rcpp_partition2", (DL_FUNC) &_torchsparse_rcpp_partition2, 6},
-    {"_torchsparse_rcpp_mt_partition", (DL_FUNC) &_torchsparse_rcpp_mt_partition, 7},
-    {"_torchsparse_rcpp_relabel", (DL_FUNC) &_torchsparse_rcpp_relabel, 2},
+    {"_torchsparse_rcpp_sparse_partition", (DL_FUNC) &_torchsparse_rcpp_sparse_partition, 5},
+    {"_torchsparse_rcpp_sparse_partition2", (DL_FUNC) &_torchsparse_rcpp_sparse_partition2, 6},
+    {"_torchsparse_rcpp_sparse_mt_partition", (DL_FUNC) &_torchsparse_rcpp_sparse_mt_partition, 7},
+    {"_torchsparse_rcpp_sparse_relabel", (DL_FUNC) &_torchsparse_rcpp_sparse_relabel, 2},
     {"_torchsparse_rcpp_sparse_random_walk", (DL_FUNC) &_torchsparse_rcpp_sparse_random_walk, 4},
     {"_torchsparse_rcpp_sparse_spmm_sum", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_sum, 7},
     {"_torchsparse_rcpp_sparse_spmm_mean", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_mean, 8},
+    {"_torchsparse_rcpp_delete_tensor_pair", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_pair, 1},
+    {"_torchsparse_rcpp_tensor_pair_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_first, 1},
+    {"_torchsparse_rcpp_tensor_pair_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_second, 1},
     {NULL, NULL, 0}
 };
 

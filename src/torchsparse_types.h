@@ -1,3 +1,4 @@
+#pragma once
 #include <torch.h>
 
 namespace torchsparse {
@@ -6,5 +7,6 @@ public:
   std::shared_ptr<void> ptr;
   tensor_pair (void* x);
   operator SEXP () const;
+  void* get ();
 };
 }

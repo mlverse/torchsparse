@@ -15,17 +15,17 @@ tensor_pair TensorPair (void* x) {
 }
 }
 
-// [[torch::export(rcpp=FALSE)]]
+// [[torch::export]]
 void delete_tensor_pair(void* x) {
   delete reinterpret_cast<tensor_pair*>(x);
 }
 
-// [[torch::export(rcpp=FALSE)]]
+// [[torch::export]]
 torch::Tensor tensor_pair_get_first(tensor_pair x) {
   return std::get<0>(x);
 }
 
-// [[torch::export(rcpp=FALSE)]]
+// [[torch::export]]
 torch::Tensor tensor_pair_get_second(tensor_pair x) {
   return std::get<1>(x);
 }
