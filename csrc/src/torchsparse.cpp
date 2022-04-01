@@ -88,5 +88,14 @@ tensor_pair sparse_spmm_min(torch::Tensor rowptr,
   return spmm_min(rowptr, col, opt_value, mat);
 }
 
+// [[torch::export]]
+tensor_pair sparse_spmm_max(torch::Tensor rowptr,
+                            torch::Tensor col,
+                            torch::optional<torch::Tensor> opt_value,
+                            torch::Tensor mat) {
+  return spmm_max(rowptr, col, opt_value, mat);
+}
+
+
 
 
