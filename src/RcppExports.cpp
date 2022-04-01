@@ -144,6 +144,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_sparse_spmm_min
+torchsparse::tensor_pair rcpp_sparse_spmm_min(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor opt_value, torch::Tensor mat);
+RcppExport SEXP _torchsparse_rcpp_sparse_spmm_min(SEXP rowptrSEXP, SEXP colSEXP, SEXP opt_valueSEXP, SEXP matSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type opt_value(opt_valueSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type mat(matSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_spmm_min(rowptr, col, opt_value, mat));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_delete_tensor_pair
 void rcpp_delete_tensor_pair(void* x);
 RcppExport SEXP _torchsparse_rcpp_delete_tensor_pair(SEXP xSEXP) {
@@ -187,6 +201,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_random_walk", (DL_FUNC) &_torchsparse_rcpp_sparse_random_walk, 4},
     {"_torchsparse_rcpp_sparse_spmm_sum", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_sum, 7},
     {"_torchsparse_rcpp_sparse_spmm_mean", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_mean, 8},
+    {"_torchsparse_rcpp_sparse_spmm_min", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_min, 4},
     {"_torchsparse_rcpp_delete_tensor_pair", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_pair, 1},
     {"_torchsparse_rcpp_tensor_pair_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_first, 1},
     {"_torchsparse_rcpp_tensor_pair_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_second, 1},

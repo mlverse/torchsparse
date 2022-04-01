@@ -12,6 +12,7 @@ EXPORTS
   _sparse_random_walk
   _sparse_spmm_sum
   _sparse_spmm_mean
+  _sparse_spmm_min
   _delete_tensor_pair
   _tensor_pair_get_first
   _tensor_pair_get_second

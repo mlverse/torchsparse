@@ -80,5 +80,13 @@ torch::Tensor sparse_spmm_mean(torch::optional<torch::Tensor> opt_row,
   return spmm_mean(opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat);
 }
 
+// [[torch::export]]
+tensor_pair sparse_spmm_min(torch::Tensor rowptr,
+                            torch::Tensor col,
+                            torch::optional<torch::Tensor> opt_value,
+                            torch::Tensor mat) {
+  return spmm_min(rowptr, col, opt_value, mat);
+}
+
 
 

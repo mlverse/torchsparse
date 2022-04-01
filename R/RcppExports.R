@@ -37,6 +37,10 @@ rcpp_sparse_spmm_mean <- function(opt_row, rowptr, col, opt_value, opt_rowcount,
     .Call('_torchsparse_rcpp_sparse_spmm_mean', PACKAGE = 'torchsparse', opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat)
 }
 
+rcpp_sparse_spmm_min <- function(rowptr, col, opt_value, mat) {
+    .Call('_torchsparse_rcpp_sparse_spmm_min', PACKAGE = 'torchsparse', rowptr, col, opt_value, mat)
+}
+
 rcpp_delete_tensor_pair <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_pair', PACKAGE = 'torchsparse', x))
 }

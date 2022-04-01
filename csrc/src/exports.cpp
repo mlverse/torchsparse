@@ -77,6 +77,13 @@ TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col,
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+tensor_pair sparse_spmm_min (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> opt_value, torch::Tensor mat);
+TORCHSPARSE_API void* _sparse_spmm_min (void* rowptr, void* col, void* opt_value, void* mat) {
+  try {
+    return  make_raw::TensorPair(sparse_spmm_min(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(opt_value), from_raw::Tensor(mat)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 void delete_tensor_pair (void* x);
 TORCHSPARSE_API void _delete_tensor_pair (void* x) {
   try {
