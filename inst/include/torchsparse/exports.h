@@ -46,6 +46,11 @@ TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor (void* x);
 TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_first (void* x);
 TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_second (void* x);
 TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_third (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor_tensor (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_first (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_second (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_third (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_fourth (void* x);
 
 #ifdef RCPP_VERSION
 inline void* sparse_ind2ptr (void* ind, int64_t M) {
@@ -140,6 +145,31 @@ inline void* tensor_tensor_optionaltensor_get_second (void* x) {
 }
 inline void* tensor_tensor_optionaltensor_get_third (void* x) {
   auto ret =  _tensor_tensor_optionaltensor_get_third(x);
+  host_exception_handler();
+  return ret;
+}
+inline void delete_tensor_tensor_optionaltensor_tensor (void* x) {
+   _delete_tensor_tensor_optionaltensor_tensor(x);
+  host_exception_handler();
+  
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_first (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_first(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_second (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_second(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_third (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_third(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_fourth (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_fourth(x);
   host_exception_handler();
   return ret;
 }
