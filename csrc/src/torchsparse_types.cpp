@@ -7,11 +7,17 @@ namespace make_raw {
 void* TensorPair (const tensor_pair& x) {
   return make_ptr<tensor_pair>(x);
 }
+void* TensorTensorOptionaltensor (const tensor_tensor_optionaltensor& x) {
+  return make_ptr<tensor_tensor_optionaltensor>(x);
+}
 }
 
 namespace from_raw {
 tensor_pair TensorPair (void* x) {
   return *reinterpret_cast<tensor_pair*>(x);
+}
+tensor_tensor_optionaltensor TensorTensorOptionaltensor (void* x) {
+  return *reinterpret_cast<tensor_tensor_optionaltensor*>(x);
 }
 }
 
@@ -30,3 +36,22 @@ torch::Tensor tensor_pair_get_second(tensor_pair x) {
   return std::get<1>(x);
 }
 
+// [[torch::export(register_types=c("tensor_tensor_optionaltensor", "TensorTensorOptionaltensor", "void*", "torchsparse::tensor_tensor_optionaltensor"))]]
+void delete_tensor_tensor_optionaltensor(void* x) {
+  delete reinterpret_cast<tensor_tensor_optionaltensor*>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_optionaltensor_get_first(tensor_tensor_optionaltensor x) {
+  return std::get<0>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_optionaltensor_get_second(tensor_tensor_optionaltensor x) {
+  return std::get<1>(x);
+}
+
+// [[torch::export]]
+torch::optional<torch::Tensor> tensor_tensor_optionaltensor_get_third(tensor_tensor_optionaltensor x) {
+  return std::get<2>(x);
+}

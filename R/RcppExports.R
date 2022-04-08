@@ -41,6 +41,10 @@ rcpp_sparse_spmm_min <- function(rowptr, col, opt_value, mat) {
     .Call('_torchsparse_rcpp_sparse_spmm_min', PACKAGE = 'torchsparse', rowptr, col, opt_value, mat)
 }
 
+rcpp_sparse_spmm_max <- function(rowptr, col, opt_value, mat) {
+    .Call('_torchsparse_rcpp_sparse_spmm_max', PACKAGE = 'torchsparse', rowptr, col, opt_value, mat)
+}
+
 rcpp_delete_tensor_pair <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_pair', PACKAGE = 'torchsparse', x))
 }
@@ -51,5 +55,21 @@ rcpp_tensor_pair_get_first <- function(x) {
 
 rcpp_tensor_pair_get_second <- function(x) {
     .Call('_torchsparse_rcpp_tensor_pair_get_second', PACKAGE = 'torchsparse', x)
+}
+
+rcpp_delete_tensor_tensor_optionaltensor <- function(x) {
+    invisible(.Call('_torchsparse_rcpp_delete_tensor_tensor_optionaltensor', PACKAGE = 'torchsparse', x))
+}
+
+rcpp_tensor_tensor_optionaltensor_get_first <- function(x) {
+    .Call('_torchsparse_rcpp_tensor_tensor_optionaltensor_get_first', PACKAGE = 'torchsparse', x)
+}
+
+rcpp_tensor_tensor_optionaltensor_get_second <- function(x) {
+    .Call('_torchsparse_rcpp_tensor_tensor_optionaltensor_get_second', PACKAGE = 'torchsparse', x)
+}
+
+rcpp_tensor_tensor_optionaltensor_get_third <- function(x) {
+    .Call('_torchsparse_rcpp_tensor_tensor_optionaltensor_get_third', PACKAGE = 'torchsparse', x)
 }
 

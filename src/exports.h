@@ -17,3 +17,7 @@ torchsparse::tensor_pair rcpp_sparse_spmm_max (torch::Tensor rowptr, torch::Tens
 void rcpp_delete_tensor_pair (void* x);
 torch::Tensor rcpp_tensor_pair_get_first (torchsparse::tensor_pair x);
 torch::Tensor rcpp_tensor_pair_get_second (torchsparse::tensor_pair x);
+void rcpp_delete_tensor_tensor_optionaltensor (void* x);
+torch::Tensor rcpp_tensor_tensor_optionaltensor_get_first (torchsparse::tensor_tensor_optionaltensor x);
+torch::Tensor rcpp_tensor_tensor_optionaltensor_get_second (torchsparse::tensor_tensor_optionaltensor x);
+torch::optional::Tensor rcpp_tensor_tensor_optionaltensor_get_third (torchsparse::tensor_tensor_optionaltensor x);

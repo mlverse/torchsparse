@@ -112,3 +112,31 @@ TORCHSPARSE_API void* _tensor_pair_get_second (void* x) {
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+void delete_tensor_tensor_optionaltensor (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor (void* x) {
+  try {
+     (delete_tensor_tensor_optionaltensor(x));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  
+}
+torch::Tensor tensor_tensor_optionaltensor_get_first (tensor_tensor_optionaltensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_first (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_get_first(from_raw::TensorTensorOptionaltensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_optionaltensor_get_second (tensor_tensor_optionaltensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_second (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_get_second(from_raw::TensorTensorOptionaltensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::optional<torch::Tensor> tensor_tensor_optionaltensor_get_third (tensor_tensor_optionaltensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_third (void* x) {
+  try {
+    return  make_raw::optional::Tensor(tensor_tensor_optionaltensor_get_third(from_raw::TensorTensorOptionaltensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
