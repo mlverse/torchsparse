@@ -91,6 +91,13 @@ TORCHSPARSE_API void* _sparse_spmm_max (void* rowptr, void* col, void* opt_value
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+tensor_tensor_optionaltensor sparse_spspmm_sum (torch::Tensor rowptrA, torch::Tensor colA, torch::optional<torch::Tensor> optional_valueA, torch::Tensor rowptrB, torch::Tensor colB, torch::optional<torch::Tensor> optional_valueB, int64_t K);
+TORCHSPARSE_API void* _sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K) {
+  try {
+    return  make_raw::TensorTensorOptionaltensor(sparse_spspmm_sum(from_raw::Tensor(rowptrA), from_raw::Tensor(colA), from_raw::optional::Tensor(optional_valueA), from_raw::Tensor(rowptrB), from_raw::Tensor(colB), from_raw::optional::Tensor(optional_valueB), K));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 void delete_tensor_pair (void* x);
 TORCHSPARSE_API void _delete_tensor_pair (void* x) {
   try {

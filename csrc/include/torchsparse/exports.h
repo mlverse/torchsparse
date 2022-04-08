@@ -38,6 +38,7 @@ TORCHSPARSE_API void* _sparse_spmm_sum (void* opt_row, void* rowptr, void* col, 
 TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_rowcount, void* opt_colptr, void* opt_csr2csc, void* mat);
 TORCHSPARSE_API void* _sparse_spmm_min (void* rowptr, void* col, void* opt_value, void* mat);
 TORCHSPARSE_API void* _sparse_spmm_max (void* rowptr, void* col, void* opt_value, void* mat);
+TORCHSPARSE_API void* _sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K);
 TORCHSPARSE_API void _delete_tensor_pair (void* x);
 TORCHSPARSE_API void* _tensor_pair_get_first (void* x);
 TORCHSPARSE_API void* _tensor_pair_get_second (void* x);
@@ -99,6 +100,11 @@ inline void* sparse_spmm_min (void* rowptr, void* col, void* opt_value, void* ma
 }
 inline void* sparse_spmm_max (void* rowptr, void* col, void* opt_value, void* mat) {
   auto ret =  _sparse_spmm_max(rowptr, col, opt_value, mat);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K) {
+  auto ret =  _sparse_spspmm_sum(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K);
   host_exception_handler();
   return ret;
 }

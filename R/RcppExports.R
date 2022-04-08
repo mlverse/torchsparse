@@ -45,6 +45,10 @@ rcpp_sparse_spmm_max <- function(rowptr, col, opt_value, mat) {
     .Call('_torchsparse_rcpp_sparse_spmm_max', PACKAGE = 'torchsparse', rowptr, col, opt_value, mat)
 }
 
+rcpp_sparse_spspmm_sum <- function(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K) {
+    .Call('_torchsparse_rcpp_sparse_spspmm_sum', PACKAGE = 'torchsparse', rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K)
+}
+
 rcpp_delete_tensor_pair <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_pair', PACKAGE = 'torchsparse', x))
 }

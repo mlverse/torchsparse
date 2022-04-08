@@ -48,6 +48,10 @@ torchsparse::tensor_pair rcpp_sparse_spmm_max (torch::Tensor rowptr, torch::Tens
   return  sparse_spmm_max(rowptr.get(), col.get(), opt_value.get(), mat.get());
 }
 // [[Rcpp::export]]
+torchsparse::tensor_tensor_optionaltensor rcpp_sparse_spspmm_sum (torch::Tensor rowptrA, torch::Tensor colA, torch::optional::Tensor optional_valueA, torch::Tensor rowptrB, torch::Tensor colB, torch::optional::Tensor optional_valueB, int64_t K) {
+  return  sparse_spspmm_sum(rowptrA.get(), colA.get(), optional_valueA.get(), rowptrB.get(), colB.get(), optional_valueB.get(), K);
+}
+// [[Rcpp::export]]
 void rcpp_delete_tensor_pair (void* x) {
    delete_tensor_pair(x);
 }

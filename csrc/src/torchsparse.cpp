@@ -97,5 +97,15 @@ tensor_pair sparse_spmm_max(torch::Tensor rowptr,
 }
 
 
+// [[torch::export]]
+tensor_tensor_optionaltensor sparse_spspmm_sum(torch::Tensor rowptrA,
+                                               torch::Tensor colA,
+                                               torch::optional<torch::Tensor> optional_valueA,
+                                               torch::Tensor rowptrB,
+                                               torch::Tensor colB,
+                                               torch::optional<torch::Tensor> optional_valueB,
+                                               int64_t K) {
+  return spspmm_sum(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K);
+}
 
 
