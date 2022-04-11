@@ -16,6 +16,9 @@ void* TensorTensorTensor (const tensor_tensor_tensor& x) {
 void* TensorTensorOptionaltensorTensor (const tensor_tensor_optionaltensor_tensor& x) {
   return make_ptr<tensor_tensor_optionaltensor_tensor>(x);
 }
+void* TensorTensorTensorTensor (const tensor_tensor_tensor_tensor& x) {
+  return make_ptr<tensor_tensor_tensor_tensor>(x);
+}
 }
 
 namespace from_raw {
@@ -30,6 +33,9 @@ tensor_tensor_tensor TensorTensorTensor (void* x) {
 }
 tensor_tensor_optionaltensor_tensor TensorTensorOptionaltensorTensor (void* x) {
   return *reinterpret_cast<tensor_tensor_optionaltensor_tensor*>(x);
+}
+tensor_tensor_tensor_tensor TensorTensorTensorTensor (void* x) {
+  return *reinterpret_cast<tensor_tensor_tensor_tensor*>(x);
 }
 }
 

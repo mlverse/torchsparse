@@ -124,3 +124,4 @@ tensor_tensor_tensor subgraph(torch::Tensor idx,
                               torch::Tensor col) {
   return subgraph(idx, rowptr, row, col);
 }
+
