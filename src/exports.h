@@ -33,3 +33,8 @@ torch::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_first (torchsparse::t
 torch::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_second (torchsparse::tensor_tensor_optionaltensor_tensor x);
 torch::optional::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_third (torchsparse::tensor_tensor_optionaltensor_tensor x);
 torch::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_fourth (torchsparse::tensor_tensor_optionaltensor_tensor x);
+void rcpp_delete_tensor_tensor_tensor_tensor (void* x);
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_first (torchsparse::tensor_tensor_tensor_tensor x);
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_second (torchsparse::tensor_tensor_tensor_tensor x);
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_third (torchsparse::tensor_tensor_tensor_tensor x);
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_fourth (torchsparse::tensor_tensor_tensor_tensor x);

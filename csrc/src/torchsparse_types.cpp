@@ -113,3 +113,27 @@ torch::Tensor tensor_tensor_optionaltensor_tensor_get_fourth(tensor_tensor_optio
   return std::get<3>(x);
 }
 
+// [[torch::export(register_types=c("tensor_tensor_tensor_tensor", "TensorTensorTensorTensor", "void*", "torchsparse::tensor_tensor_tensor_tensor"))]]
+void delete_tensor_tensor_tensor_tensor(void* x) {
+  delete reinterpret_cast<tensor_tensor_tensor_tensor*>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_tensor_tensor_get_first(tensor_tensor_tensor_tensor x) {
+  return std::get<0>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_tensor_tensor_get_second(tensor_tensor_tensor_tensor x) {
+  return std::get<1>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_tensor_tensor_get_third(tensor_tensor_tensor_tensor x) {
+  return std::get<2>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_tensor_tensor_get_fourth(tensor_tensor_tensor_tensor x) {
+  return std::get<3>(x);
+}
