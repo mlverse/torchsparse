@@ -41,6 +41,7 @@ TORCHSPARSE_API void* _sparse_spmm_max (void* rowptr, void* col, void* opt_value
 TORCHSPARSE_API void* _sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K);
 TORCHSPARSE_API void* _sparse_relabel_one_hop (void* rowptr, void* col, void* optional_value, void* idx, bool bipartite);
 TORCHSPARSE_API void* _subgraph (void* idx, void* rowptr, void* row, void* col);
+TORCHSPARSE_API void* _sample_adj (void* rowptr, void* col, void* idx, int64_t num_neighbors, bool replace);
 TORCHSPARSE_API void _delete_tensor_pair (void* x);
 TORCHSPARSE_API void* _tensor_pair_get_first (void* x);
 TORCHSPARSE_API void* _tensor_pair_get_second (void* x);
@@ -131,6 +132,11 @@ inline void* sparse_relabel_one_hop (void* rowptr, void* col, void* optional_val
 }
 inline void* subgraph (void* idx, void* rowptr, void* row, void* col) {
   auto ret =  _subgraph(idx, rowptr, row, col);
+  host_exception_handler();
+  return ret;
+}
+inline void* sample_adj (void* rowptr, void* col, void* idx, int64_t num_neighbors, bool replace) {
+  auto ret =  _sample_adj(rowptr, col, idx, num_neighbors, replace);
   host_exception_handler();
   return ret;
 }

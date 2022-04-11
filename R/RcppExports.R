@@ -57,6 +57,10 @@ rcpp_subgraph <- function(idx, rowptr, row, col) {
     .Call('_torchsparse_rcpp_subgraph', PACKAGE = 'torchsparse', idx, rowptr, row, col)
 }
 
+rcpp_sample_adj <- function(rowptr, col, idx, num_neighbors, replace) {
+    .Call('_torchsparse_rcpp_sample_adj', PACKAGE = 'torchsparse', rowptr, col, idx, num_neighbors, replace)
+}
+
 rcpp_delete_tensor_pair <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_pair', PACKAGE = 'torchsparse', x))
 }

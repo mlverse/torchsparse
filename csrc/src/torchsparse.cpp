@@ -125,3 +125,12 @@ tensor_tensor_tensor subgraph(torch::Tensor idx,
   return subgraph(idx, rowptr, row, col);
 }
 
+// [[torch::export]]
+tensor_tensor_tensor_tensor sample_adj(torch::Tensor rowptr,
+                                       torch::Tensor col,
+                                       torch::Tensor idx,
+                                       int64_t num_neighbors,
+                                       bool replace) {
+  return sample_adj(rowptr, col, idx, num_neighbors, replace);
+}
+

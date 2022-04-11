@@ -112,6 +112,13 @@ TORCHSPARSE_API void* _subgraph (void* idx, void* rowptr, void* row, void* col) 
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+tensor_tensor_tensor_tensor sample_adj (torch::Tensor rowptr, torch::Tensor col, torch::Tensor idx, int64_t num_neighbors, bool replace);
+TORCHSPARSE_API void* _sample_adj (void* rowptr, void* col, void* idx, int64_t num_neighbors, bool replace) {
+  try {
+    return  make_raw::TensorTensorTensorTensor(sample_adj(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::Tensor(idx), num_neighbors, replace));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 void delete_tensor_pair (void* x);
 TORCHSPARSE_API void _delete_tensor_pair (void* x) {
   try {

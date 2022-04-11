@@ -60,6 +60,10 @@ torchsparse::tensor_tensor_tensor rcpp_subgraph (torch::Tensor idx, torch::Tenso
   return  subgraph(idx.get(), rowptr.get(), row.get(), col.get());
 }
 // [[Rcpp::export]]
+torchsparse::tensor_tensor_tensor_tensor rcpp_sample_adj (torch::Tensor rowptr, torch::Tensor col, torch::Tensor idx, int64_t num_neighbors, bool replace) {
+  return  sample_adj(rowptr.get(), col.get(), idx.get(), num_neighbors, replace);
+}
+// [[Rcpp::export]]
 void rcpp_delete_tensor_pair (void* x) {
    delete_tensor_pair(x);
 }

@@ -17,6 +17,7 @@ torchsparse::tensor_pair rcpp_sparse_spmm_max (torch::Tensor rowptr, torch::Tens
 torchsparse::tensor_tensor_optionaltensor rcpp_sparse_spspmm_sum (torch::Tensor rowptrA, torch::Tensor colA, torch::optional::Tensor optional_valueA, torch::Tensor rowptrB, torch::Tensor colB, torch::optional::Tensor optional_valueB, int64_t K);
 torchsparse::tensor_tensor_optionaltensor_tensor rcpp_sparse_relabel_one_hop (torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::Tensor idx, bool bipartite);
 torchsparse::tensor_tensor_tensor rcpp_subgraph (torch::Tensor idx, torch::Tensor rowptr, torch::Tensor row, torch::Tensor col);
+torchsparse::tensor_tensor_tensor_tensor rcpp_sample_adj (torch::Tensor rowptr, torch::Tensor col, torch::Tensor idx, int64_t num_neighbors, bool replace);
 void rcpp_delete_tensor_pair (void* x);
 torch::Tensor rcpp_tensor_pair_get_first (torchsparse::tensor_pair x);
 torch::Tensor rcpp_tensor_pair_get_second (torchsparse::tensor_pair x);
