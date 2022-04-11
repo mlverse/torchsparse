@@ -279,6 +279,49 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_delete_tensor_tensor_tensor
+void rcpp_delete_tensor_tensor_tensor(void* x);
+RcppExport SEXP _torchsparse_rcpp_delete_tensor_tensor_tensor(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< void* >::type x(xSEXP);
+    rcpp_delete_tensor_tensor_tensor(x);
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_get_first
+torch::Tensor rcpp_tensor_tensor_tensor_get_first(torchsparse::tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_get_first(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_get_first(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_get_second
+torch::Tensor rcpp_tensor_tensor_tensor_get_second(torchsparse::tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_get_second(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_get_second(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_get_third
+torch::optional::Tensor rcpp_tensor_tensor_tensor_get_third(torchsparse::tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_get_third(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_get_third(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_delete_tensor_tensor_optionaltensor_tensor
 void rcpp_delete_tensor_tensor_optionaltensor_tensor(void* x);
 RcppExport SEXP _torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor(SEXP xSEXP) {
@@ -355,6 +398,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_tensor_tensor_optionaltensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_get_first, 1},
     {"_torchsparse_rcpp_tensor_tensor_optionaltensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_get_second, 1},
     {"_torchsparse_rcpp_tensor_tensor_optionaltensor_get_third", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_get_third, 1},
+    {"_torchsparse_rcpp_delete_tensor_tensor_tensor", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_tensor_tensor, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_get_first, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_get_second, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_get_third", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_get_third, 1},
     {"_torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor, 1},
     {"_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_first, 1},
     {"_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_second, 1},

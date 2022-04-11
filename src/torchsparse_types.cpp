@@ -17,6 +17,20 @@ tensor_pair::operator SEXP () const {
 
 tensor_pair::tensor_pair (void* x) : ptr(x, rcpp_delete_tensor_pair) {};
 
+void* tensor_tensor_tensor::get() {
+  return ptr.get();
+}
+
+tensor_tensor_tensor::operator SEXP () const {
+  Rcpp::List out;
+  out.push_back(rcpp_tensor_tensor_tensor_get_first(*this));
+  out.push_back(rcpp_tensor_tensor_tensor_get_second(*this));
+  out.push_back(rcpp_tensor_tensor_tensor_get_third(*this));
+  return out;
+}
+
+tensor_tensor_tensor::tensor_tensor_tensor (void* x) : ptr(x, rcpp_delete_tensor_tensor_tensor) {};
+
 void* tensor_tensor_optionaltensor::get() {
   return ptr.get();
 }

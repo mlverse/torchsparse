@@ -81,6 +81,22 @@ rcpp_tensor_tensor_optionaltensor_get_third <- function(x) {
     .Call('_torchsparse_rcpp_tensor_tensor_optionaltensor_get_third', PACKAGE = 'torchsparse', x)
 }
 
+rcpp_delete_tensor_tensor_tensor <- function(x) {
+    invisible(.Call('_torchsparse_rcpp_delete_tensor_tensor_tensor', PACKAGE = 'torchsparse', x))
+}
+
+rcpp_tensor_tensor_tensor_get_first <- function(x) {
+    .Call('_torchsparse_rcpp_tensor_tensor_tensor_get_first', PACKAGE = 'torchsparse', x)
+}
+
+rcpp_tensor_tensor_tensor_get_second <- function(x) {
+    .Call('_torchsparse_rcpp_tensor_tensor_tensor_get_second', PACKAGE = 'torchsparse', x)
+}
+
+rcpp_tensor_tensor_tensor_get_third <- function(x) {
+    .Call('_torchsparse_rcpp_tensor_tensor_tensor_get_third', PACKAGE = 'torchsparse', x)
+}
+
 rcpp_delete_tensor_tensor_optionaltensor_tensor <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor', PACKAGE = 'torchsparse', x))
 }

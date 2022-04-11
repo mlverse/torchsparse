@@ -10,6 +10,9 @@ void* TensorPair (const tensor_pair& x) {
 void* TensorTensorOptionaltensor (const tensor_tensor_optionaltensor& x) {
   return make_ptr<tensor_tensor_optionaltensor>(x);
 }
+void* TensorTensorTensor (const tensor_tensor_tensor& x) {
+  return make_ptr<tensor_tensor_tensor>(x);
+}
 void* TensorTensorOptionaltensorTensor (const tensor_tensor_optionaltensor_tensor& x) {
   return make_ptr<tensor_tensor_optionaltensor_tensor>(x);
 }
@@ -21,6 +24,9 @@ tensor_pair TensorPair (void* x) {
 }
 tensor_tensor_optionaltensor TensorTensorOptionaltensor (void* x) {
   return *reinterpret_cast<tensor_tensor_optionaltensor*>(x);
+}
+tensor_tensor_tensor TensorTensorTensor (void* x) {
+  return *reinterpret_cast<tensor_tensor_tensor*>(x);
 }
 tensor_tensor_optionaltensor_tensor TensorTensorOptionaltensorTensor (void* x) {
   return *reinterpret_cast<tensor_tensor_optionaltensor_tensor*>(x);
@@ -59,6 +65,26 @@ torch::Tensor tensor_tensor_optionaltensor_get_second(tensor_tensor_optionaltens
 
 // [[torch::export]]
 torch::optional<torch::Tensor> tensor_tensor_optionaltensor_get_third(tensor_tensor_optionaltensor x) {
+  return std::get<2>(x);
+}
+
+// [[torch::export(register_types=c("tensor_tensor_tensor", "TensorTensorTensor", "void*", "torchsparse::tensor_tensor_tensor"))]]
+void delete_tensor_tensor_tensor(void* x) {
+  delete reinterpret_cast<tensor_tensor_tensor*>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_tensor_get_first(tensor_tensor_tensor x) {
+  return std::get<0>(x);
+}
+
+// [[torch::export]]
+torch::Tensor tensor_tensor_tensor_get_second(tensor_tensor_tensor x) {
+  return std::get<1>(x);
+}
+
+// [[torch::export]]
+torch::optional<torch::Tensor> tensor_tensor_tensor_get_third(tensor_tensor_tensor x) {
   return std::get<2>(x);
 }
 

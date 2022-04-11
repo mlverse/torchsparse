@@ -84,6 +84,22 @@ torch::optional::Tensor rcpp_tensor_tensor_optionaltensor_get_third (torchsparse
   return  tensor_tensor_optionaltensor_get_third(x.get());
 }
 // [[Rcpp::export]]
+void rcpp_delete_tensor_tensor_tensor (void* x) {
+   delete_tensor_tensor_tensor(x);
+}
+// [[Rcpp::export]]
+torch::Tensor rcpp_tensor_tensor_tensor_get_first (torchsparse::tensor_tensor_tensor x) {
+  return  tensor_tensor_tensor_get_first(x.get());
+}
+// [[Rcpp::export]]
+torch::Tensor rcpp_tensor_tensor_tensor_get_second (torchsparse::tensor_tensor_tensor x) {
+  return  tensor_tensor_tensor_get_second(x.get());
+}
+// [[Rcpp::export]]
+torch::optional::Tensor rcpp_tensor_tensor_tensor_get_third (torchsparse::tensor_tensor_tensor x) {
+  return  tensor_tensor_tensor_get_third(x.get());
+}
+// [[Rcpp::export]]
 void rcpp_delete_tensor_tensor_optionaltensor_tensor (void* x) {
    delete_tensor_tensor_optionaltensor_tensor(x);
 }

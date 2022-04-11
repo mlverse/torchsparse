@@ -23,6 +23,10 @@ EXPORTS
   _tensor_tensor_optionaltensor_get_first
   _tensor_tensor_optionaltensor_get_second
   _tensor_tensor_optionaltensor_get_third
+  _delete_tensor_tensor_tensor
+  _tensor_tensor_tensor_get_first
+  _tensor_tensor_tensor_get_second
+  _tensor_tensor_tensor_get_third
   _delete_tensor_tensor_optionaltensor_tensor
   _tensor_tensor_optionaltensor_tensor_get_first
   _tensor_tensor_optionaltensor_tensor_get_second
