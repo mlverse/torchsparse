@@ -98,6 +98,13 @@ TORCHSPARSE_API void* _sparse_spspmm_sum (void* rowptrA, void* colA, void* optio
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+tensor_tensor_optionaltensor_tensor sparse_relabel_one_hop (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> optional_value, torch::Tensor idx, bool bipartite);
+TORCHSPARSE_API void* _sparse_relabel_one_hop (void* rowptr, void* col, void* optional_value, void* idx, bool bipartite) {
+  try {
+    return  make_raw::TensorTensorOptionaltensorTensor(sparse_relabel_one_hop(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(optional_value), from_raw::Tensor(idx), bipartite));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 void delete_tensor_pair (void* x);
 TORCHSPARSE_API void _delete_tensor_pair (void* x) {
   try {

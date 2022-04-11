@@ -108,4 +108,12 @@ tensor_tensor_optionaltensor sparse_spspmm_sum(torch::Tensor rowptrA,
   return spspmm_sum(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K);
 }
 
+// [[torch::export]]
+tensor_tensor_optionaltensor_tensor sparse_relabel_one_hop(torch::Tensor rowptr,
+                                                           torch::Tensor col,
+                                                           torch::optional<torch::Tensor> optional_value,
+                                                           torch::Tensor idx,
+                                                           bool bipartite) {
+  return relabel_one_hop(rowptr, col, optional_value, idx, bipartite);
+}
 

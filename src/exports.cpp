@@ -52,6 +52,10 @@ torchsparse::tensor_tensor_optionaltensor rcpp_sparse_spspmm_sum (torch::Tensor 
   return  sparse_spspmm_sum(rowptrA.get(), colA.get(), optional_valueA.get(), rowptrB.get(), colB.get(), optional_valueB.get(), K);
 }
 // [[Rcpp::export]]
+torchsparse::tensor_tensor_optionaltensor_tensor rcpp_sparse_relabel_one_hop (torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::Tensor idx, bool bipartite) {
+  return  sparse_relabel_one_hop(rowptr.get(), col.get(), optional_value.get(), idx.get(), bipartite);
+}
+// [[Rcpp::export]]
 void rcpp_delete_tensor_pair (void* x) {
    delete_tensor_pair(x);
 }

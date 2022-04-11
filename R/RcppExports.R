@@ -49,6 +49,10 @@ rcpp_sparse_spspmm_sum <- function(rowptrA, colA, optional_valueA, rowptrB, colB
     .Call('_torchsparse_rcpp_sparse_spspmm_sum', PACKAGE = 'torchsparse', rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K)
 }
 
+rcpp_sparse_relabel_one_hop <- function(rowptr, col, optional_value, idx, bipartite) {
+    .Call('_torchsparse_rcpp_sparse_relabel_one_hop', PACKAGE = 'torchsparse', rowptr, col, optional_value, idx, bipartite)
+}
+
 rcpp_delete_tensor_pair <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_pair', PACKAGE = 'torchsparse', x))
 }

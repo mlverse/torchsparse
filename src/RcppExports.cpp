@@ -189,6 +189,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_sparse_relabel_one_hop
+torchsparse::tensor_tensor_optionaltensor_tensor rcpp_sparse_relabel_one_hop(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::Tensor idx, bool bipartite);
+RcppExport SEXP _torchsparse_rcpp_sparse_relabel_one_hop(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP idxSEXP, SEXP bipartiteSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type optional_value(optional_valueSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type idx(idxSEXP);
+    Rcpp::traits::input_parameter< bool >::type bipartite(bipartiteSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_relabel_one_hop(rowptr, col, optional_value, idx, bipartite));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_delete_tensor_pair
 void rcpp_delete_tensor_pair(void* x);
 RcppExport SEXP _torchsparse_rcpp_delete_tensor_pair(SEXP xSEXP) {
@@ -332,6 +347,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_spmm_min", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_min, 4},
     {"_torchsparse_rcpp_sparse_spmm_max", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_max, 4},
     {"_torchsparse_rcpp_sparse_spspmm_sum", (DL_FUNC) &_torchsparse_rcpp_sparse_spspmm_sum, 7},
+    {"_torchsparse_rcpp_sparse_relabel_one_hop", (DL_FUNC) &_torchsparse_rcpp_sparse_relabel_one_hop, 5},
     {"_torchsparse_rcpp_delete_tensor_pair", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_pair, 1},
     {"_torchsparse_rcpp_tensor_pair_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_first, 1},
     {"_torchsparse_rcpp_tensor_pair_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_second, 1},
