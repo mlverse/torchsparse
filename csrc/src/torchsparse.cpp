@@ -117,3 +117,10 @@ tensor_tensor_optionaltensor_tensor sparse_relabel_one_hop(torch::Tensor rowptr,
   return relabel_one_hop(rowptr, col, optional_value, idx, bipartite);
 }
 
+// [[torch::export]]
+tensor_tensor_tensor subgraph(torch::Tensor idx,
+                              torch::Tensor rowptr,
+                              torch::Tensor row,
+                              torch::Tensor col) {
+  return subgraph(idx, rowptr, row, col);
+}

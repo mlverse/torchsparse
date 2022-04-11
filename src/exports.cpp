@@ -56,6 +56,10 @@ torchsparse::tensor_tensor_optionaltensor_tensor rcpp_sparse_relabel_one_hop (to
   return  sparse_relabel_one_hop(rowptr.get(), col.get(), optional_value.get(), idx.get(), bipartite);
 }
 // [[Rcpp::export]]
+torchsparse::tensor_tensor_tensor rcpp_subgraph (torch::Tensor idx, torch::Tensor rowptr, torch::Tensor row, torch::Tensor col) {
+  return  subgraph(idx.get(), rowptr.get(), row.get(), col.get());
+}
+// [[Rcpp::export]]
 void rcpp_delete_tensor_pair (void* x) {
    delete_tensor_pair(x);
 }

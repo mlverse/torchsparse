@@ -105,6 +105,13 @@ TORCHSPARSE_API void* _sparse_relabel_one_hop (void* rowptr, void* col, void* op
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+tensor_tensor_tensor subgraph (torch::Tensor idx, torch::Tensor rowptr, torch::Tensor row, torch::Tensor col);
+TORCHSPARSE_API void* _subgraph (void* idx, void* rowptr, void* row, void* col) {
+  try {
+    return  make_raw::TensorTensorTensor(subgraph(from_raw::Tensor(idx), from_raw::Tensor(rowptr), from_raw::Tensor(row), from_raw::Tensor(col)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 void delete_tensor_pair (void* x);
 TORCHSPARSE_API void _delete_tensor_pair (void* x) {
   try {

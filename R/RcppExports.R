@@ -53,6 +53,10 @@ rcpp_sparse_relabel_one_hop <- function(rowptr, col, optional_value, idx, bipart
     .Call('_torchsparse_rcpp_sparse_relabel_one_hop', PACKAGE = 'torchsparse', rowptr, col, optional_value, idx, bipartite)
 }
 
+rcpp_subgraph <- function(idx, rowptr, row, col) {
+    .Call('_torchsparse_rcpp_subgraph', PACKAGE = 'torchsparse', idx, rowptr, row, col)
+}
+
 rcpp_delete_tensor_pair <- function(x) {
     invisible(.Call('_torchsparse_rcpp_delete_tensor_pair', PACKAGE = 'torchsparse', x))
 }

@@ -16,6 +16,7 @@ EXPORTS
   _sparse_spmm_max
   _sparse_spspmm_sum
   _sparse_relabel_one_hop
+  _subgraph
   _delete_tensor_pair
   _tensor_pair_get_first
   _tensor_pair_get_second
