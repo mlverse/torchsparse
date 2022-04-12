@@ -32,7 +32,7 @@ ExternalProject_Add(PyTorchSparse-project
 )
 
 SET(PyTorchSparse_INCLUDE_DIR ${PyTorchSparse_DESTDIR}/include)
-SET(PyTorchSparse_LIB_DIR ${PyTorchSparse_DESTDIR}/lib})
+SET(PyTorchSparse_LIB_DIR ${PyTorchSparse_DESTDIR}/${CMAKE_INSTALL_LIBDIR})
 
 if(APPLE)
   SET(PyTorchSparse_LIB_LOCATION ${PyTorchSparse_LIB_DIR}/libtorchsparse.dylib)
