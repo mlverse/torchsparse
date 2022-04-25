@@ -80,5 +80,57 @@ torch::Tensor sparse_spmm_mean(torch::optional<torch::Tensor> opt_row,
   return spmm_mean(opt_row, rowptr, col, opt_value, opt_rowcount, opt_colptr, opt_csr2csc, mat);
 }
 
+// [[torch::export]]
+tensor_pair sparse_spmm_min(torch::Tensor rowptr,
+                            torch::Tensor col,
+                            torch::optional<torch::Tensor> opt_value,
+                            torch::Tensor mat) {
+  return spmm_min(rowptr, col, opt_value, mat);
+}
 
+// [[torch::export]]
+tensor_pair sparse_spmm_max(torch::Tensor rowptr,
+                            torch::Tensor col,
+                            torch::optional<torch::Tensor> opt_value,
+                            torch::Tensor mat) {
+  return spmm_max(rowptr, col, opt_value, mat);
+}
+
+
+// [[torch::export]]
+tensor_tensor_optionaltensor sparse_spspmm_sum(torch::Tensor rowptrA,
+                                               torch::Tensor colA,
+                                               torch::optional<torch::Tensor> optional_valueA,
+                                               torch::Tensor rowptrB,
+                                               torch::Tensor colB,
+                                               torch::optional<torch::Tensor> optional_valueB,
+                                               int64_t K) {
+  return spspmm_sum(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K);
+}
+
+// [[torch::export]]
+tensor_tensor_optionaltensor_tensor sparse_relabel_one_hop(torch::Tensor rowptr,
+                                                           torch::Tensor col,
+                                                           torch::optional<torch::Tensor> optional_value,
+                                                           torch::Tensor idx,
+                                                           bool bipartite) {
+  return relabel_one_hop(rowptr, col, optional_value, idx, bipartite);
+}
+
+// [[torch::export]]
+tensor_tensor_tensor subgraph(torch::Tensor idx,
+                              torch::Tensor rowptr,
+                              torch::Tensor row,
+                              torch::Tensor col) {
+  return subgraph(idx, rowptr, row, col);
+}
+
+// [[torch::export]]
+tensor_tensor_tensor_tensor sample_adj(torch::Tensor rowptr,
+                                       torch::Tensor col,
+                                       torch::Tensor idx,
+                                       int64_t num_neighbors,
+                                       bool replace) {
+  return sample_adj(rowptr, col, idx, num_neighbors, replace);
+}
 

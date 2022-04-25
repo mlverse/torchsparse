@@ -144,6 +144,95 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_sparse_spmm_min
+torchsparse::tensor_pair rcpp_sparse_spmm_min(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor opt_value, torch::Tensor mat);
+RcppExport SEXP _torchsparse_rcpp_sparse_spmm_min(SEXP rowptrSEXP, SEXP colSEXP, SEXP opt_valueSEXP, SEXP matSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type opt_value(opt_valueSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type mat(matSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_spmm_min(rowptr, col, opt_value, mat));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_sparse_spmm_max
+torchsparse::tensor_pair rcpp_sparse_spmm_max(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor opt_value, torch::Tensor mat);
+RcppExport SEXP _torchsparse_rcpp_sparse_spmm_max(SEXP rowptrSEXP, SEXP colSEXP, SEXP opt_valueSEXP, SEXP matSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type opt_value(opt_valueSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type mat(matSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_spmm_max(rowptr, col, opt_value, mat));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_sparse_spspmm_sum
+torchsparse::tensor_tensor_optionaltensor rcpp_sparse_spspmm_sum(torch::Tensor rowptrA, torch::Tensor colA, torch::optional::Tensor optional_valueA, torch::Tensor rowptrB, torch::Tensor colB, torch::optional::Tensor optional_valueB, int64_t K);
+RcppExport SEXP _torchsparse_rcpp_sparse_spspmm_sum(SEXP rowptrASEXP, SEXP colASEXP, SEXP optional_valueASEXP, SEXP rowptrBSEXP, SEXP colBSEXP, SEXP optional_valueBSEXP, SEXP KSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptrA(rowptrASEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type colA(colASEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type optional_valueA(optional_valueASEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptrB(rowptrBSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type colB(colBSEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type optional_valueB(optional_valueBSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type K(KSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_spspmm_sum(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_sparse_relabel_one_hop
+torchsparse::tensor_tensor_optionaltensor_tensor rcpp_sparse_relabel_one_hop(torch::Tensor rowptr, torch::Tensor col, torch::optional::Tensor optional_value, torch::Tensor idx, bool bipartite);
+RcppExport SEXP _torchsparse_rcpp_sparse_relabel_one_hop(SEXP rowptrSEXP, SEXP colSEXP, SEXP optional_valueSEXP, SEXP idxSEXP, SEXP bipartiteSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::optional::Tensor >::type optional_value(optional_valueSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type idx(idxSEXP);
+    Rcpp::traits::input_parameter< bool >::type bipartite(bipartiteSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sparse_relabel_one_hop(rowptr, col, optional_value, idx, bipartite));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_subgraph
+torchsparse::tensor_tensor_tensor rcpp_subgraph(torch::Tensor idx, torch::Tensor rowptr, torch::Tensor row, torch::Tensor col);
+RcppExport SEXP _torchsparse_rcpp_subgraph(SEXP idxSEXP, SEXP rowptrSEXP, SEXP rowSEXP, SEXP colSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type idx(idxSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type row(rowSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_subgraph(idx, rowptr, row, col));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_sample_adj
+torchsparse::tensor_tensor_tensor_tensor rcpp_sample_adj(torch::Tensor rowptr, torch::Tensor col, torch::Tensor idx, int64_t num_neighbors, bool replace);
+RcppExport SEXP _torchsparse_rcpp_sample_adj(SEXP rowptrSEXP, SEXP colSEXP, SEXP idxSEXP, SEXP num_neighborsSEXP, SEXP replaceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::Tensor >::type rowptr(rowptrSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type col(colSEXP);
+    Rcpp::traits::input_parameter< torch::Tensor >::type idx(idxSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type num_neighbors(num_neighborsSEXP);
+    Rcpp::traits::input_parameter< bool >::type replace(replaceSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_sample_adj(rowptr, col, idx, num_neighbors, replace));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_delete_tensor_pair
 void rcpp_delete_tensor_pair(void* x);
 RcppExport SEXP _torchsparse_rcpp_delete_tensor_pair(SEXP xSEXP) {
@@ -176,6 +265,200 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_delete_tensor_tensor_optionaltensor
+void rcpp_delete_tensor_tensor_optionaltensor(void* x);
+RcppExport SEXP _torchsparse_rcpp_delete_tensor_tensor_optionaltensor(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< void* >::type x(xSEXP);
+    rcpp_delete_tensor_tensor_optionaltensor(x);
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_get_first
+torch::Tensor rcpp_tensor_tensor_optionaltensor_get_first(torchsparse::tensor_tensor_optionaltensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_get_first(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_get_first(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_get_second
+torch::Tensor rcpp_tensor_tensor_optionaltensor_get_second(torchsparse::tensor_tensor_optionaltensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_get_second(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_get_second(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_get_third
+torch::optional::Tensor rcpp_tensor_tensor_optionaltensor_get_third(torchsparse::tensor_tensor_optionaltensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_get_third(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_get_third(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_delete_tensor_tensor_tensor
+void rcpp_delete_tensor_tensor_tensor(void* x);
+RcppExport SEXP _torchsparse_rcpp_delete_tensor_tensor_tensor(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< void* >::type x(xSEXP);
+    rcpp_delete_tensor_tensor_tensor(x);
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_get_first
+torch::Tensor rcpp_tensor_tensor_tensor_get_first(torchsparse::tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_get_first(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_get_first(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_get_second
+torch::Tensor rcpp_tensor_tensor_tensor_get_second(torchsparse::tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_get_second(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_get_second(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_get_third
+torch::optional::Tensor rcpp_tensor_tensor_tensor_get_third(torchsparse::tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_get_third(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_get_third(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_delete_tensor_tensor_optionaltensor_tensor
+void rcpp_delete_tensor_tensor_optionaltensor_tensor(void* x);
+RcppExport SEXP _torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< void* >::type x(xSEXP);
+    rcpp_delete_tensor_tensor_optionaltensor_tensor(x);
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_tensor_get_first
+torch::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_first(torchsparse::tensor_tensor_optionaltensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_first(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_tensor_get_first(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_tensor_get_second
+torch::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_second(torchsparse::tensor_tensor_optionaltensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_second(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_tensor_get_second(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_tensor_get_third
+torch::optional::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_third(torchsparse::tensor_tensor_optionaltensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_third(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_tensor_get_third(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_optionaltensor_tensor_get_fourth
+torch::Tensor rcpp_tensor_tensor_optionaltensor_tensor_get_fourth(torchsparse::tensor_tensor_optionaltensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_fourth(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_optionaltensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_optionaltensor_tensor_get_fourth(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_delete_tensor_tensor_tensor_tensor
+void rcpp_delete_tensor_tensor_tensor_tensor(void* x);
+RcppExport SEXP _torchsparse_rcpp_delete_tensor_tensor_tensor_tensor(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< void* >::type x(xSEXP);
+    rcpp_delete_tensor_tensor_tensor_tensor(x);
+    return R_NilValue;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_tensor_get_first
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_first(torchsparse::tensor_tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_tensor_get_first(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_tensor_get_first(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_tensor_get_second
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_second(torchsparse::tensor_tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_tensor_get_second(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_tensor_get_second(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_tensor_get_third
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_third(torchsparse::tensor_tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_tensor_get_third(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_tensor_get_third(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_tensor_tensor_tensor_tensor_get_fourth
+torch::Tensor rcpp_tensor_tensor_tensor_tensor_get_fourth(torchsparse::tensor_tensor_tensor_tensor x);
+RcppExport SEXP _torchsparse_rcpp_tensor_tensor_tensor_tensor_get_fourth(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torchsparse::tensor_tensor_tensor_tensor >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_tensor_tensor_tensor_tensor_get_fourth(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_ind2ptr", (DL_FUNC) &_torchsparse_rcpp_sparse_ind2ptr, 2},
@@ -187,9 +470,33 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torchsparse_rcpp_sparse_random_walk", (DL_FUNC) &_torchsparse_rcpp_sparse_random_walk, 4},
     {"_torchsparse_rcpp_sparse_spmm_sum", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_sum, 7},
     {"_torchsparse_rcpp_sparse_spmm_mean", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_mean, 8},
+    {"_torchsparse_rcpp_sparse_spmm_min", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_min, 4},
+    {"_torchsparse_rcpp_sparse_spmm_max", (DL_FUNC) &_torchsparse_rcpp_sparse_spmm_max, 4},
+    {"_torchsparse_rcpp_sparse_spspmm_sum", (DL_FUNC) &_torchsparse_rcpp_sparse_spspmm_sum, 7},
+    {"_torchsparse_rcpp_sparse_relabel_one_hop", (DL_FUNC) &_torchsparse_rcpp_sparse_relabel_one_hop, 5},
+    {"_torchsparse_rcpp_subgraph", (DL_FUNC) &_torchsparse_rcpp_subgraph, 4},
+    {"_torchsparse_rcpp_sample_adj", (DL_FUNC) &_torchsparse_rcpp_sample_adj, 5},
     {"_torchsparse_rcpp_delete_tensor_pair", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_pair, 1},
     {"_torchsparse_rcpp_tensor_pair_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_first, 1},
     {"_torchsparse_rcpp_tensor_pair_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_pair_get_second, 1},
+    {"_torchsparse_rcpp_delete_tensor_tensor_optionaltensor", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_tensor_optionaltensor, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_get_first, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_get_second, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_get_third", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_get_third, 1},
+    {"_torchsparse_rcpp_delete_tensor_tensor_tensor", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_tensor_tensor, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_get_first, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_get_second, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_get_third", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_get_third, 1},
+    {"_torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_tensor_optionaltensor_tensor, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_first, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_second, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_third", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_third, 1},
+    {"_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_fourth", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_optionaltensor_tensor_get_fourth, 1},
+    {"_torchsparse_rcpp_delete_tensor_tensor_tensor_tensor", (DL_FUNC) &_torchsparse_rcpp_delete_tensor_tensor_tensor_tensor, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_first", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_first, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_second", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_second, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_third", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_third, 1},
+    {"_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_fourth", (DL_FUNC) &_torchsparse_rcpp_tensor_tensor_tensor_tensor_get_fourth, 1},
     {NULL, NULL, 0}
 };
 

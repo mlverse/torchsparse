@@ -77,6 +77,48 @@ TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col,
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+tensor_pair sparse_spmm_min (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> opt_value, torch::Tensor mat);
+TORCHSPARSE_API void* _sparse_spmm_min (void* rowptr, void* col, void* opt_value, void* mat) {
+  try {
+    return  make_raw::TensorPair(sparse_spmm_min(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(opt_value), from_raw::Tensor(mat)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+tensor_pair sparse_spmm_max (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> opt_value, torch::Tensor mat);
+TORCHSPARSE_API void* _sparse_spmm_max (void* rowptr, void* col, void* opt_value, void* mat) {
+  try {
+    return  make_raw::TensorPair(sparse_spmm_max(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(opt_value), from_raw::Tensor(mat)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+tensor_tensor_optionaltensor sparse_spspmm_sum (torch::Tensor rowptrA, torch::Tensor colA, torch::optional<torch::Tensor> optional_valueA, torch::Tensor rowptrB, torch::Tensor colB, torch::optional<torch::Tensor> optional_valueB, int64_t K);
+TORCHSPARSE_API void* _sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K) {
+  try {
+    return  make_raw::TensorTensorOptionaltensor(sparse_spspmm_sum(from_raw::Tensor(rowptrA), from_raw::Tensor(colA), from_raw::optional::Tensor(optional_valueA), from_raw::Tensor(rowptrB), from_raw::Tensor(colB), from_raw::optional::Tensor(optional_valueB), K));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+tensor_tensor_optionaltensor_tensor sparse_relabel_one_hop (torch::Tensor rowptr, torch::Tensor col, torch::optional<torch::Tensor> optional_value, torch::Tensor idx, bool bipartite);
+TORCHSPARSE_API void* _sparse_relabel_one_hop (void* rowptr, void* col, void* optional_value, void* idx, bool bipartite) {
+  try {
+    return  make_raw::TensorTensorOptionaltensorTensor(sparse_relabel_one_hop(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::optional::Tensor(optional_value), from_raw::Tensor(idx), bipartite));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+tensor_tensor_tensor subgraph (torch::Tensor idx, torch::Tensor rowptr, torch::Tensor row, torch::Tensor col);
+TORCHSPARSE_API void* _subgraph (void* idx, void* rowptr, void* row, void* col) {
+  try {
+    return  make_raw::TensorTensorTensor(subgraph(from_raw::Tensor(idx), from_raw::Tensor(rowptr), from_raw::Tensor(row), from_raw::Tensor(col)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+tensor_tensor_tensor_tensor sample_adj (torch::Tensor rowptr, torch::Tensor col, torch::Tensor idx, int64_t num_neighbors, bool replace);
+TORCHSPARSE_API void* _sample_adj (void* rowptr, void* col, void* idx, int64_t num_neighbors, bool replace) {
+  try {
+    return  make_raw::TensorTensorTensorTensor(sample_adj(from_raw::Tensor(rowptr), from_raw::Tensor(col), from_raw::Tensor(idx), num_neighbors, replace));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
 void delete_tensor_pair (void* x);
 TORCHSPARSE_API void _delete_tensor_pair (void* x) {
   try {
@@ -95,6 +137,132 @@ torch::Tensor tensor_pair_get_second (tensor_pair x);
 TORCHSPARSE_API void* _tensor_pair_get_second (void* x) {
   try {
     return  make_raw::Tensor(tensor_pair_get_second(from_raw::TensorPair(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+void delete_tensor_tensor_optionaltensor (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor (void* x) {
+  try {
+     (delete_tensor_tensor_optionaltensor(x));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  
+}
+torch::Tensor tensor_tensor_optionaltensor_get_first (tensor_tensor_optionaltensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_first (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_get_first(from_raw::TensorTensorOptionaltensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_optionaltensor_get_second (tensor_tensor_optionaltensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_second (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_get_second(from_raw::TensorTensorOptionaltensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::optional<torch::Tensor> tensor_tensor_optionaltensor_get_third (tensor_tensor_optionaltensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_third (void* x) {
+  try {
+    return  make_raw::optional::Tensor(tensor_tensor_optionaltensor_get_third(from_raw::TensorTensorOptionaltensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+void delete_tensor_tensor_tensor (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_tensor (void* x) {
+  try {
+     (delete_tensor_tensor_tensor(x));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  
+}
+torch::Tensor tensor_tensor_tensor_get_first (tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_get_first (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_tensor_get_first(from_raw::TensorTensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_tensor_get_second (tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_get_second (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_tensor_get_second(from_raw::TensorTensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::optional<torch::Tensor> tensor_tensor_tensor_get_third (tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_get_third (void* x) {
+  try {
+    return  make_raw::optional::Tensor(tensor_tensor_tensor_get_third(from_raw::TensorTensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+void delete_tensor_tensor_optionaltensor_tensor (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor_tensor (void* x) {
+  try {
+     (delete_tensor_tensor_optionaltensor_tensor(x));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  
+}
+torch::Tensor tensor_tensor_optionaltensor_tensor_get_first (tensor_tensor_optionaltensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_first (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_tensor_get_first(from_raw::TensorTensorOptionaltensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_optionaltensor_tensor_get_second (tensor_tensor_optionaltensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_second (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_tensor_get_second(from_raw::TensorTensorOptionaltensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::optional<torch::Tensor> tensor_tensor_optionaltensor_tensor_get_third (tensor_tensor_optionaltensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_third (void* x) {
+  try {
+    return  make_raw::optional::Tensor(tensor_tensor_optionaltensor_tensor_get_third(from_raw::TensorTensorOptionaltensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_optionaltensor_tensor_get_fourth (tensor_tensor_optionaltensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_fourth (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_optionaltensor_tensor_get_fourth(from_raw::TensorTensorOptionaltensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+void delete_tensor_tensor_tensor_tensor (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_tensor_tensor (void* x) {
+  try {
+     (delete_tensor_tensor_tensor_tensor(x));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  
+}
+torch::Tensor tensor_tensor_tensor_tensor_get_first (tensor_tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_first (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_tensor_tensor_get_first(from_raw::TensorTensorTensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_tensor_tensor_get_second (tensor_tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_second (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_tensor_tensor_get_second(from_raw::TensorTensorTensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_tensor_tensor_get_third (tensor_tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_third (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_tensor_tensor_get_third(from_raw::TensorTensorTensorTensor(x)));
+  } TORCHSPARSE_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+torch::Tensor tensor_tensor_tensor_tensor_get_fourth (tensor_tensor_tensor_tensor x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_fourth (void* x) {
+  try {
+    return  make_raw::Tensor(tensor_tensor_tensor_tensor_get_fourth(from_raw::TensorTensorTensorTensor(x)));
   } TORCHSPARSE_HANDLE_EXCEPTION
   return (void*) NULL;
 }

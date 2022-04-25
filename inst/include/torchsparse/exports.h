@@ -36,9 +36,33 @@ TORCHSPARSE_API void* _sparse_relabel (void* col, void* idx);
 TORCHSPARSE_API void* _sparse_random_walk (void* rowptr, void* col, void* start, int64_t walk_length);
 TORCHSPARSE_API void* _sparse_spmm_sum (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_colptr, void* opt_csr2csc, void* mat);
 TORCHSPARSE_API void* _sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt_value, void* opt_rowcount, void* opt_colptr, void* opt_csr2csc, void* mat);
+TORCHSPARSE_API void* _sparse_spmm_min (void* rowptr, void* col, void* opt_value, void* mat);
+TORCHSPARSE_API void* _sparse_spmm_max (void* rowptr, void* col, void* opt_value, void* mat);
+TORCHSPARSE_API void* _sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K);
+TORCHSPARSE_API void* _sparse_relabel_one_hop (void* rowptr, void* col, void* optional_value, void* idx, bool bipartite);
+TORCHSPARSE_API void* _subgraph (void* idx, void* rowptr, void* row, void* col);
+TORCHSPARSE_API void* _sample_adj (void* rowptr, void* col, void* idx, int64_t num_neighbors, bool replace);
 TORCHSPARSE_API void _delete_tensor_pair (void* x);
 TORCHSPARSE_API void* _tensor_pair_get_first (void* x);
 TORCHSPARSE_API void* _tensor_pair_get_second (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_first (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_second (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_get_third (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_tensor (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_get_first (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_get_second (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_get_third (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_optionaltensor_tensor (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_first (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_second (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_third (void* x);
+TORCHSPARSE_API void* _tensor_tensor_optionaltensor_tensor_get_fourth (void* x);
+TORCHSPARSE_API void _delete_tensor_tensor_tensor_tensor (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_first (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_second (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_third (void* x);
+TORCHSPARSE_API void* _tensor_tensor_tensor_tensor_get_fourth (void* x);
 
 #ifdef RCPP_VERSION
 inline void* sparse_ind2ptr (void* ind, int64_t M) {
@@ -86,6 +110,36 @@ inline void* sparse_spmm_mean (void* opt_row, void* rowptr, void* col, void* opt
   host_exception_handler();
   return ret;
 }
+inline void* sparse_spmm_min (void* rowptr, void* col, void* opt_value, void* mat) {
+  auto ret =  _sparse_spmm_min(rowptr, col, opt_value, mat);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_spmm_max (void* rowptr, void* col, void* opt_value, void* mat) {
+  auto ret =  _sparse_spmm_max(rowptr, col, opt_value, mat);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_spspmm_sum (void* rowptrA, void* colA, void* optional_valueA, void* rowptrB, void* colB, void* optional_valueB, int64_t K) {
+  auto ret =  _sparse_spspmm_sum(rowptrA, colA, optional_valueA, rowptrB, colB, optional_valueB, K);
+  host_exception_handler();
+  return ret;
+}
+inline void* sparse_relabel_one_hop (void* rowptr, void* col, void* optional_value, void* idx, bool bipartite) {
+  auto ret =  _sparse_relabel_one_hop(rowptr, col, optional_value, idx, bipartite);
+  host_exception_handler();
+  return ret;
+}
+inline void* subgraph (void* idx, void* rowptr, void* row, void* col) {
+  auto ret =  _subgraph(idx, rowptr, row, col);
+  host_exception_handler();
+  return ret;
+}
+inline void* sample_adj (void* rowptr, void* col, void* idx, int64_t num_neighbors, bool replace) {
+  auto ret =  _sample_adj(rowptr, col, idx, num_neighbors, replace);
+  host_exception_handler();
+  return ret;
+}
 inline void delete_tensor_pair (void* x) {
    _delete_tensor_pair(x);
   host_exception_handler();
@@ -98,6 +152,96 @@ inline void* tensor_pair_get_first (void* x) {
 }
 inline void* tensor_pair_get_second (void* x) {
   auto ret =  _tensor_pair_get_second(x);
+  host_exception_handler();
+  return ret;
+}
+inline void delete_tensor_tensor_optionaltensor (void* x) {
+   _delete_tensor_tensor_optionaltensor(x);
+  host_exception_handler();
+  
+}
+inline void* tensor_tensor_optionaltensor_get_first (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_get_first(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_get_second (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_get_second(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_get_third (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_get_third(x);
+  host_exception_handler();
+  return ret;
+}
+inline void delete_tensor_tensor_tensor (void* x) {
+   _delete_tensor_tensor_tensor(x);
+  host_exception_handler();
+  
+}
+inline void* tensor_tensor_tensor_get_first (void* x) {
+  auto ret =  _tensor_tensor_tensor_get_first(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_tensor_get_second (void* x) {
+  auto ret =  _tensor_tensor_tensor_get_second(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_tensor_get_third (void* x) {
+  auto ret =  _tensor_tensor_tensor_get_third(x);
+  host_exception_handler();
+  return ret;
+}
+inline void delete_tensor_tensor_optionaltensor_tensor (void* x) {
+   _delete_tensor_tensor_optionaltensor_tensor(x);
+  host_exception_handler();
+  
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_first (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_first(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_second (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_second(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_third (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_third(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_optionaltensor_tensor_get_fourth (void* x) {
+  auto ret =  _tensor_tensor_optionaltensor_tensor_get_fourth(x);
+  host_exception_handler();
+  return ret;
+}
+inline void delete_tensor_tensor_tensor_tensor (void* x) {
+   _delete_tensor_tensor_tensor_tensor(x);
+  host_exception_handler();
+  
+}
+inline void* tensor_tensor_tensor_tensor_get_first (void* x) {
+  auto ret =  _tensor_tensor_tensor_tensor_get_first(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_tensor_tensor_get_second (void* x) {
+  auto ret =  _tensor_tensor_tensor_tensor_get_second(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_tensor_tensor_get_third (void* x) {
+  auto ret =  _tensor_tensor_tensor_tensor_get_third(x);
+  host_exception_handler();
+  return ret;
+}
+inline void* tensor_tensor_tensor_tensor_get_fourth (void* x) {
+  auto ret =  _tensor_tensor_tensor_tensor_get_fourth(x);
   host_exception_handler();
   return ret;
 }
