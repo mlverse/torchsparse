@@ -1,29 +1,18 @@
 ## usethis namespace: start
-#' @importFrom Rcpp sourceCpp
 #' @importFrom utils download.file packageDescription unzip
 ## usethis namespace: end
 NULL
 
 .onLoad <- function(lib, pkg) {
   if (torch::torch_is_installed()) {
-
     if (!torchsparse_is_installed())
       install_torchsparse()
 
     if (!torchsparse_is_installed()) {
       if (interactive())
-        warning("libtorchsparse is not installed. Run `intall_torchsparse()` before using the package.")
+        warning("libtorchsparse is not installed. Run `install_torchsparse()` before using the package.")
     } else {
       dyn.load(lib_path("torchsparse"), local = FALSE)
-      dyn.load(lib_path("torchsparselib"), local = FALSE)
-
-      # when using devtools::load_all() the library might be available in
-      # `lib/pkg/src`
-      pkgload <- file.path(lib, pkg, "src", paste0(pkg, .Platform$dynlib.ext))
-      if (file.exists(pkgload))
-        dyn.load(pkgload)
-      else
-        library.dynam("torchsparse", pkg, lib)
     }
   }
 }

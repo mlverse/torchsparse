@@ -14,9 +14,9 @@ Roxygen: list(markdown = TRUE)
 SystemRequirements: C++11
 RoxygenNote: 7.1.1
 LinkingTo: 
-    Rcpp, torch
+    torch
 Imports: 
-    Rcpp, torch
+    torch
 Remotes:
     mlverse/torch
 Suggests: 

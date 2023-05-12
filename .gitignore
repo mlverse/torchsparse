@@ -8,7 +8,3 @@ inst/include
 inst/lib
 inst/lib64
 inst/bin
-!inst/include/torchsparse/exports.h
-!inst/include/torchsparse/torchsparse.h
-src/torchsparselib.lib
-

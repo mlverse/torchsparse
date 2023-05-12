@@ -1,5 +1,5 @@
 # Project name and cmake minimum requirement.
-project(torchsparselib)
+#project(torchsparselib)
 cmake_minimum_required(VERSION 3.16)
 
 # accommodate differing conventions
@@ -53,52 +53,52 @@ endif()
 # If you want to separate your implementation in multiple files
 # add their paths after `src/lltm.cpp`, the spearator is a simple
 # space.
-set(TORCHSPARSE_SRC src/torchsparse.cpp src/torchsparse_types.cpp src/exports.cpp)
-set(TORCHSPARSE_HEADERS include/torchsparse/torchsparse.h include/torchsparse/exports.h)
+#set(TORCHSPARSE_SRC src/torchsparse.cpp src/torchsparse_types.cpp src/exports.cpp)
+#set(TORCHSPARSE_HEADERS include/torchsparse/torchsparse.h include/torchsparse/exports.h)
 
 # On Windows we use module definition files to declare what are
 # the exported functions from the library. It's similar to the
 # Namespace file in the R ecossystem.
 # We need to fill it manually as its used to link the Rcpp interface
 # with the `csrc` library.
-if(WIN32)
-  set(TORCHSPARSE_SRC ${TORCHSPARSE_SRC} src/torchsparse.def)
-endif()
+#if(WIN32)
+#  set(TORCHSPARSE_SRC ${TORCHSPARSE_SRC} src/torchsparse.def)
+#endif()
 
 # Tell cmake to build the shared library.
-add_library(torchsparselib SHARED ${TORCHSPARSE_SRC})
-add_library(torchsparselib::library ALIAS torchsparselib)
+#add_library(torchsparselib SHARED ${TORCHSPARSE_SRC})
+#add_library(torchsparselib::library ALIAS torchsparselib)
 
 # Tell cmake what are the include files.
-target_include_directories(torchsparselib PUBLIC
-    ${PROJECT_SOURCE_DIR}/include
-    ${PyTorchSparse_INCLUDE_DIR}
-)
-set_property(TARGET torchsparselib
- PROPERTY PUBLIC_HEADER ${TORCHSPARSE_HEADERS})
+#target_include_directories(torchsparselib PUBLIC
+#    ${PROJECT_SOURCE_DIR}/include
+#    ${PyTorchSparse_INCLUDE_DIR}
+#)
+#set_property(TARGET torchsparselib
+# PROPERTY PUBLIC_HEADER ${TORCHSPARSE_HEADERS})
 
-add_dependencies(torchsparselib PyTorchSparse-project)
+#add_dependencies(torchsparselib PyTorchSparse-project)
 
-set_property(TARGET torchsparselib PROPERTY CXX_STANDARD 17)
+#set_property(TARGET torchsparselib PROPERTY CXX_STANDARD 17)
 
 # Tell cmake the libraries we want to link to.
-message(STATUS "${TORCH_LIBRARIES}")
-target_link_libraries(torchsparselib "${TORCH_LIBRARIES}")
-target_link_libraries(torchsparselib PyTorchSparse)
+#message(STATUS "${TORCH_LIBRARIES}")
+#target_link_libraries(torchsparselib "${TORCH_LIBRARIES}")
+#target_link_libraries(torchsparselib PyTorchSparse)
 
-add_custom_target(torchsparselib_export
-  COMMAND Rscript -e "torchexport::export()"
-  COMMENT "Regenerating export code."
-  VERBATIM
-)
-add_dependencies(torchsparselib torchsparselib_export)
+#add_custom_target(torchsparselib_export
+#  COMMAND Rscript -e "torchexport::export()"
+#  COMMENT "Regenerating export code."
+#  VERBATIM
+#)
+#add_dependencies(torchsparselib torchsparselib_export)
 
 # Syncronize the headers and the def file with the Rcpp
 # interface.
-add_custom_command(TARGET torchsparselib POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/src/torchsparse.def ${PROJECT_SOURCE_DIR}/../inst/def/torchsparse.def
-    COMMENT "Copied def file to inst folder."
-)
+#add_custom_command(TARGET torchsparselib POST_BUILD
+#    COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/src/torchsparse.def ${PROJECT_SOURCE_DIR}/../inst/def/torchsparse.def
+#    COMMENT "Copied def file to inst folder."
+#)
 
 # Set CPack related code to automatically generate installation bundles.
 # The bundle name will have the same version as defined in the R DESCRIPTION
@@ -121,5 +121,5 @@ endif()
 include(CPack)
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../inst)
-install(TARGETS torchsparselib LIBRARY PUBLIC_HEADER DESTINATION include/torchsparse)
+#install(TARGETS torchsparselib LIBRARY PUBLIC_HEADER DESTINATION include/torchsparse)
 install(DIRECTORY ${PyTorchSparse_DESTDIR}/ DESTINATION .)
