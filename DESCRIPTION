@@ -13,8 +13,6 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 SystemRequirements: C++11
 RoxygenNote: 7.2.3
-LinkingTo: 
-    torch
 Imports: 
     torch
 Remotes:
