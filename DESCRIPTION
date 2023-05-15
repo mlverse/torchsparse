@@ -12,11 +12,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 SystemRequirements: C++11
-RoxygenNote: 7.1.1
-LinkingTo: 
-    Rcpp, torch
+RoxygenNote: 7.2.3
 Imports: 
-    Rcpp, torch
+    torch
 Remotes:
     mlverse/torch
 Suggests: 
